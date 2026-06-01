@@ -5,6 +5,7 @@ const PROJECTS = [
     id: 'PRJ-081',
     title: 'Industrial Gateway',
     company: 'SIEMENS Digital Industries',
+    image: '/images/projects/industrial-gateway.jpg',
     architecture: 'An industrial communication gateway bridging CANopen and PROFINET networks. On the CANopen side, the gateway communicates with distributed field devices, including sensors, actuators, and motor drives. On the PROFINET side, it interfaces with PLCs and supervisory control systems, providing seamless real-time data exchange between both network domains. Moreover secure boot including firmware',
     Security: 'Designed and implemented a secure boot architecture including firmware authentication through digital signature verification, firmware encryption, integrity validation, and hardware root-of-trust mechanisms using OTP (One-Time Programmable) fuses to protect against unauthorized firmware execution and tampering',
     specs: [
@@ -23,15 +24,16 @@ const PROJECTS = [
     id: 'PRJ-094',
     title: 'Drive-Controller',
     company: 'Schneider Electric Automation GmbH',
+    image: '/images/projects/drive-controller.jpg',
     architecture: 'High-performance real-time motion control firmware running on custom Linux. Configures and operates high-speed cyclic industrial communication with distributed clock sub-microsecond synchronization.',
     specs: [
       { label: 'HW', value: 'Xilinx Zynq SoC · ARM Cortex-A9 · EtherCAT IP Core for Xilinx FPGA' },
       { label: 'OS', value: 'Embedded Linux based on Yocto project (PetaLinux for hardware bring up)' },
       { label: 'BOOTLOADER', value: 'U-Boot · customized via BitBake layers' },
-      { label: 'PROTOCOLS', value: 'EtherCAT (SubDevice)· OPC UA FX . TSN' },
+      { label: 'PROTOCOLS', value: 'EtherCAT (SubDevice) · OPC UA FX · TSN' },
       { label: 'LANGUAGE', value: 'C/C++ · Python · Modern C++17 · Bash' },
       { label: 'INTERFACES', value: 'SPI · UART · Ethernet · I2C' },
-      { label: 'SW/TOOLS', value: 'Jira · Confluence · GitHun Pages · CONAN' },
+      { label: 'SW/TOOLS', value: 'Jira · Confluence · GitHub Pages · CONAN' },
       { label: 'HW/TOOLS', value: 'Oscilloscope · Logic Analyzer · Protocol Analyzer · Multimeter' },
       { label: 'SECURITY', value: 'Cybersecurity Linux Service · TPM (Trust Platform Module) · Device Birth Certificate · OPC UA FX authentication and authorization devices and applications' },
       { label: 'CI/CD', value: 'GitHub Actions · Embedded Linux builds · Automated testing · Firmware delivery' },
@@ -41,21 +43,42 @@ const PROJECTS = [
     id: 'PRJ-035',
     title: 'PLCC Metering Transceiver',
     company: 'Embedded FAB',
+    image: '/images/projects/plcc-transceiver.jpg',
     architecture: 'Hardware-software co-design of a Power Line Communication (PLCC) transceiver for smart metering applications. Employs noise-resistant modulation algorithms directly on bare-metal.',
     specs: [
       { label: 'HW', value: 'STM32F407 — ARM Cortex-M4' },
-      { label: 'OS', value: 'FreeRTOS)' },
+      { label: 'OS', value: 'FreeRTOS' },
       { label: 'INTERFACES/PROTOCOLS', value: 'PLCC Grid Protocol · SPI · UART · ADC' },
       { label: 'ALGORITHMS', value: 'Noise-resistant PLCC modulation — power line signal DSP' },
-      { label: 'LANGUAGE', value: 'Embedded C · Bash  · CMake' },
+      { label: 'LANGUAGE', value: 'Embedded C · Bash · CMake' },
       { label: 'BUILD', value: 'CMake + ARM GCC Toolchain' },
       { label: 'DIAGNOSTICS', value: 'Runtime logging · On-chip ring buffer · Fault analysis' },
     ]
   }
 ];
 
+function ImagePlaceholder({ id }) {
+  const colors = { 'PRJ-081': '#0d1f3c', 'PRJ-094': '#0d2a1f', 'PRJ-035': '#1f0d2a' };
+  const bg = colors[id] || '#0d1a2e';
+  return (
+    <div style={{
+      width: '100%',
+      height: '100%',
+      background: `linear-gradient(135deg, ${bg} 0%, #060e20 100%)`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <span className="material-symbols-outlined" style={{ fontSize: '48px', color: 'rgba(192,193,255,0.15)' }}>
+        memory
+      </span>
+    </div>
+  );
+}
+
 export default function ProjectShowcase() {
   const [activeProject, setActiveProject] = useState(null);
+  const [imgErrors, setImgErrors] = useState({});
 
   return (
     <div style={{ position: 'relative' }}>
@@ -78,80 +101,96 @@ export default function ProjectShowcase() {
               background: 'var(--card-bg)',
               border: '1px solid var(--card-border)',
               borderRadius: '12px',
-              padding: '28px',
-              position: 'relative'
+              overflow: 'hidden',
+              padding: 0
             }}
           >
-            {/* technical ID stamp in top right corner */}
-            <div
-              style={{
+            {/* Hero Image */}
+            <div style={{ position: 'relative', height: '180px', flexShrink: 0 }}>
+              {imgErrors[project.id] ? (
+                <ImagePlaceholder id={project.id} />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  onError={() => setImgErrors(prev => ({ ...prev, [project.id]: true }))}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              )}
+              {/* Dark gradient overlay */}
+              <div style={{
                 position: 'absolute',
-                top: '20px',
-                right: '20px',
+                inset: 0,
+                background: 'linear-gradient(to bottom, rgba(6,14,32,0.3) 0%, rgba(6,14,32,0.7) 100%)'
+              }} />
+              {/* ID badge overlaid on image */}
+              <div style={{
+                position: 'absolute',
+                top: '12px',
+                right: '12px',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '10px',
-                background: 'rgba(192, 193, 255, 0.1)',
+                background: 'rgba(6,14,32,0.75)',
                 color: 'var(--primary)',
-                border: '1px solid rgba(192, 193, 255, 0.2)',
+                border: '1px solid rgba(192, 193, 255, 0.3)',
                 padding: '2px 8px',
-                borderRadius: '4px'
-              }}
-            >
-              {project.id}
+                borderRadius: '4px',
+                backdropFilter: 'blur(4px)'
+              }}>
+                {project.id}
+              </div>
             </div>
 
-            <div>
-              <div
-                style={{
+            {/* Card Content */}
+            <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1, gap: '0' }}>
+              <div style={{ flexGrow: 1 }}>
+                <div style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '10px',
                   color: 'var(--text-muted)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.1em',
                   marginBottom: '6px'
-                }}
-              >
-                // SYSTEM_PROJECT
-              </div>
+                }}>
+                  // SYSTEM_PROJECT
+                </div>
 
-              <h3
-                style={{
+                <h3 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   color: 'var(--text-primary)',
                   marginBottom: '4px',
                   fontWeight: '700'
-                }}
-              >
-                {project.title}
-              </h3>
+                }}>
+                  {project.title}
+                </h3>
 
-              <div
-                style={{
+                <div style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '12px',
+                  fontSize: '11px',
                   color: 'var(--secondary)',
-                  marginBottom: '20px',
+                  marginBottom: '14px',
                   fontWeight: '500'
-                }}
-              >
-                {project.company}
-              </div>
+                }}>
+                  {project.company}
+                </div>
 
-              <p
-                style={{
+                <p style={{
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '14px',
+                  fontSize: '13px',
                   lineHeight: '1.6',
                   color: 'var(--text-secondary)',
-                  marginBottom: '24px'
-                }}
-              >
-                {project.architecture}
-              </p>
-            </div>
+                  marginBottom: '20px'
+                }}>
+                  {project.architecture}
+                </p>
+              </div>
 
-            <div>
               <button
                 onClick={() => setActiveProject(project)}
                 className="btn btn-secondary text-mono"
@@ -165,9 +204,7 @@ export default function ProjectShowcase() {
                   gap: '8px'
                 }}
               >
-                <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>
-                  schema
-                </span>
+                <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>schema</span>
                 VIEW_SYSTEM_SPECS
               </button>
             </div>
@@ -199,6 +236,8 @@ export default function ProjectShowcase() {
               borderRadius: '12px',
               width: '100%',
               maxWidth: '640px',
+              maxHeight: '90vh',
+              overflow: 'auto',
               padding: '28px',
               position: 'relative'
             }}
