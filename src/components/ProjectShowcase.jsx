@@ -3,16 +3,18 @@ import React, { useState } from 'react';
 const PROJECTS = [
   {
     id: 'PRJ-081',
-    title: 'Industrial Gateway System',
+    title: 'Industrial Gateway',
     company: 'SIEMENS Digital Industries',
-    architecture: 'A secure, hard real-time translation bridge mapping field protocols (CANopen, PROFINET) into corporate network infrastructure. Featuring signature validation at boot and live stream logging.',
-    mcu: 'ARM Cortex-M7 & i.MX8 Dual-Core',
-    protocols: 'PROFINET, CANopen, CAN bus, TCP/IP, Secure Boot (RSA)',
-    diagram: [
-      { source: 'Sensors / Actuators', flow: 'Analog / Digital Signals', dest: 'STM32 MCU' },
-      { source: 'STM32 MCU', flow: 'CANopen bus', dest: 'Industrial Gateway Core' },
-      { source: 'Industrial Gateway Core', flow: 'PROFINET', dest: 'PLC / Master Node' },
-      { source: 'Secure Bootloader', flow: 'Signature Validation', dest: 'Firmware Integrity Check' }
+    architecture: 'An industrial communication gateway bridging CANopen and PROFINET networks. On the CANopen side, the gateway communicates with distributed field devices, including sensors, actuators, and motor drives. On the PROFINET side, it interfaces with PLCs and supervisory control systems, providing seamless real-time data exchange between both network domains. Moreover secure boot including firmware',
+    Security: 'Designed and implemented a secure boot architecture including firmware authentication through digital signature verification, firmware encryption, integrity validation, and hardware root-of-trust mechanisms using OTP (One-Time Programmable) fuses to protect against unauthorized firmware execution and tampering',
+    specs: [
+      { label: 'HW', value: 'ARM MAP5 SoC' },
+      { label: 'OS', value: 'custom RTOS' },
+      { label: 'BOOTLOADER', value: 'Secure Bootloader · RSA Signature Validation · Data Integrity Checks' },
+      { label: 'PROTOCOLS', value: 'PROFINET · CANopen · CAN bus' },
+      { label: 'LANGUAGE', value: 'C/C++ · Python · Modern C++14 · Bash · Batch' },
+      { label: 'TOOLCHAIN', value: 'Green Hills MULTI IDE · ARM GCC compiler' },
+      { label: 'CI/CD', value: 'Azure DevOps — Firmware Release · Unit Tests · Static Analysis' },
     ]
   },
   {
@@ -22,11 +24,15 @@ const PROJECTS = [
     architecture: 'High-performance real-time motion control firmware running on custom Linux. Configures and operates high-speed cyclic industrial communication with distributed clock sub-microsecond synchronization.',
     mcu: 'Xilinx Zynq-7000 SoC (ARM A9 + FPGA)',
     protocols: 'EtherCAT Slave, OPC UA FX, Custom FPGA Register Map, TPM 2.0',
-    diagram: [
-      { source: 'EtherCAT Master', flow: 'Cyclic Sync Commands (250µs)', dest: 'FPGA IP Core' },
-      { source: 'FPGA IP Core', flow: 'FOC Motor Control register data', dest: 'Drive Gate Drivers' },
-      { source: 'ARM Core (Linux)', flow: 'Yocto Custom OS Services', dest: 'TPM Security Module' },
-      { source: 'OPC UA FX Service', flow: 'Birth Certificate Validation', dest: 'Identity Verification' }
+    specs: [
+      { label: 'HW', value: 'Xilinx Zynq-7000 SoC — ARM Cortex-A9 + FPGA Fabric' },
+      { label: 'OS', value: 'Custom Yocto / PetaLinux (Embedded Linux)' },
+      { label: 'BOOTLOADER', value: 'U-Boot — customized via BitBake layers' },
+      { label: 'PROTOCOLS', value: 'EtherCAT Slave (Distributed Clock) · OPC UA FX · TPM 2.0' },
+      { label: 'SECURITY', value: 'TPM-backed Device Birth Certificate · Cybersecurity Linux Service · OPC UA FX' },
+      { label: 'FPGA', value: 'Xilinx IP Core — HW/SW defect isolation and fix on FPGA EtherCAT core' },
+      { label: 'CI/CD', value: 'GitHub Actions — Embedded Linux builds · Automated testing · Firmware delivery' },
+      { label: 'TOOLCHAIN', value: 'BitBake · Yocto SDK · PetaLinux · ARM GCC' },
     ]
   },
   {
@@ -36,11 +42,15 @@ const PROJECTS = [
     architecture: 'Hardware-software co-design of a Power Line Communication (PLCC) transceiver for smart metering applications. Employs noise-resistant modulation algorithms directly on bare-metal.',
     mcu: 'STM32F407 (ARM Cortex-M4)',
     protocols: 'SPI, UART, High-Speed ADC, PLCC Grid Protocol, Proprietary HAL',
-    diagram: [
-      { source: 'Power Grid line', flow: 'High-Voltage AC noise stream', dest: 'Analog Front-End' },
-      { source: 'Analog Front-End', flow: 'Raw ADC digital samples (SPI)', dest: 'STM32F4 DSP Filter' },
-      { source: 'STM32F4 DSP Filter', flow: 'Modulated bitstreams decoded', dest: 'UART output stream' },
-      { source: 'Diagnostics Logger', flow: 'Fault tracking', dest: 'On-Chip Ring Buffer' }
+    specs: [
+      { label: 'HW', value: 'STM32F407 — ARM Cortex-M4 @ 168 MHz' },
+      { label: 'OS / RTOS', value: 'Bare-Metal (No RTOS)' },
+      { label: 'BOOTLOADER', value: 'Minimal custom bootloader' },
+      { label: 'PROTOCOLS', value: 'PLCC Grid Protocol · SPI · UART · High-Speed ADC' },
+      { label: 'DRIVERS', value: 'Custom bare-metal HAL — SPI · UART · ADC (STM32F4)' },
+      { label: 'ALGORITHMS', value: 'Noise-resistant PLCC modulation — power line signal DSP' },
+      { label: 'BUILD', value: 'CMake + ARM GCC Toolchain' },
+      { label: 'DIAGNOSTICS', value: 'Runtime logging · On-chip ring buffer · Fault analysis' },
     ]
   }
 ];
@@ -51,7 +61,7 @@ export default function ProjectShowcase() {
   return (
     <div style={{ position: 'relative' }}>
       {/* Grid Layout of Project Cards */}
-      <div 
+      <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -59,7 +69,7 @@ export default function ProjectShowcase() {
         }}
       >
         {PROJECTS.map((project, idx) => (
-          <div 
+          <div
             key={idx}
             className="bento-cell"
             style={{
@@ -74,7 +84,7 @@ export default function ProjectShowcase() {
             }}
           >
             {/* technical ID stamp in top right corner */}
-            <div 
+            <div
               style={{
                 position: 'absolute',
                 top: '20px',
@@ -92,7 +102,7 @@ export default function ProjectShowcase() {
             </div>
 
             <div>
-              <div 
+              <div
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '10px',
@@ -104,8 +114,8 @@ export default function ProjectShowcase() {
               >
                 // SYSTEM_PROJECT
               </div>
-              
-              <h3 
+
+              <h3
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '20px',
@@ -116,8 +126,8 @@ export default function ProjectShowcase() {
               >
                 {project.title}
               </h3>
-              
-              <div 
+
+              <div
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '12px',
@@ -129,7 +139,7 @@ export default function ProjectShowcase() {
                 {project.company}
               </div>
 
-              <p 
+              <p
                 style={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '14px',
@@ -179,7 +189,7 @@ export default function ProjectShowcase() {
 
       {/* Architectural Spec Diagram Drawer Popup */}
       {activeProject && (
-        <div 
+        <div
           style={{
             position: 'fixed',
             inset: 0,
@@ -193,7 +203,7 @@ export default function ProjectShowcase() {
           }}
           onClick={() => setActiveProject(null)}
         >
-          <div 
+          <div
             style={{
               background: 'var(--card-bg-lowest)',
               border: '1px solid var(--primary)',
@@ -223,33 +233,33 @@ export default function ProjectShowcase() {
               <span className="material-symbols-outlined">close</span>
             </button>
 
-            <span 
-              className="text-mono" 
-              style={{ 
-                color: 'var(--primary)', 
-                fontSize: '11px', 
-                borderBottom: '1px solid var(--card-border)', 
-                display: 'block', 
+            <span
+              className="text-mono"
+              style={{
+                color: 'var(--primary)',
+                fontSize: '11px',
+                borderBottom: '1px solid var(--card-border)',
+                display: 'block',
                 paddingBottom: '8px',
                 marginBottom: '16px'
               }}
             >
-              SYSTEM ARCHITECTURE BLOCK DIAGRAM // {activeProject.id}
+              SYSTEM_SPECS // {activeProject.id}
             </span>
 
             <h3 style={{ fontFamily: 'var(--font-mono)', fontSize: '22px', marginBottom: '8px', color: 'var(--text-primary)' }}>
               {activeProject.title}
             </h3>
-            
+
             <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '24px', fontFamily: 'var(--font-sans)', lineHeight: '1.5' }}>
-              Simulated schematic signals and bus routes for {activeProject.company}'s firmware deployment node.
+              A key project for {activeProject.company}, secure and hard real-time firmware
             </p>
 
-            {/* Technical Flow Table Diagrams */}
-            <div 
-              style={{ 
-                border: '1px solid var(--card-border)', 
-                borderRadius: '8px', 
+            {/* Technical Spec Sheet */}
+            <div
+              style={{
+                border: '1px solid var(--card-border)',
+                borderRadius: '8px',
                 overflow: 'hidden',
                 background: 'var(--card-bg)',
                 fontFamily: 'var(--font-mono)',
@@ -257,35 +267,20 @@ export default function ProjectShowcase() {
                 marginBottom: '20px'
               }}
             >
-              <div 
-                style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: '1fr 1.2fr 1fr', 
-                  background: 'var(--card-bg-high)', 
-                  padding: '8px 12px', 
-                  borderBottom: '1px solid var(--card-border)',
-                  color: 'var(--primary)',
-                  fontWeight: '700'
-                }}
-              >
-                <span>SOURCE_NODE</span>
-                <span>SIGNAL / BUS_DATA</span>
-                <span>DESTINATION_NODE</span>
-              </div>
-              {activeProject.diagram.map((row, idx) => (
-                <div 
-                  key={idx} 
-                  style={{ 
-                    display: 'grid', 
-                    gridTemplateColumns: '1fr 1.2fr 1fr', 
-                    padding: '10px 12px', 
-                    borderBottom: idx === activeProject.diagram.length - 1 ? 'none' : '1px solid var(--card-border)',
-                    color: 'var(--text-secondary)'
+              {activeProject.specs.map((row, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '120px 1fr',
+                    padding: '9px 14px',
+                    borderBottom: idx === activeProject.specs.length - 1 ? 'none' : '1px solid var(--card-border)',
+                    gap: '12px',
+                    alignItems: 'start'
                   }}
                 >
-                  <span style={{ color: 'var(--text-primary)' }}>{row.source}</span>
-                  <span style={{ color: 'var(--tertiary)', fontStyle: 'italic' }}>➜ {row.flow}</span>
-                  <span>{row.dest}</span>
+                  <span style={{ color: 'var(--primary)', fontWeight: '700', letterSpacing: '0.05em' }}>{row.label}</span>
+                  <span style={{ color: 'var(--text-secondary)', lineHeight: '1.5' }}>{row.value}</span>
                 </div>
               ))}
             </div>
