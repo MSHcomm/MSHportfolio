@@ -17,7 +17,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
       <div style="width: 100%; display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter-desktop); align-items: center;">
         
         <!-- Summary & Actions -->
-        <div class="reveal" style="grid-column: span 7; position: relative; z-index: 10;">
+        <div class="reveal" style="grid-column: span 7; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
           <div 
             style={{
               display: 'inline-block',
@@ -31,16 +31,19 @@ import ProjectShowcase from '../components/ProjectShowcase';
               borderRadius: '4px',
               marginBottom: '20px',
               textTransform: 'uppercase',
-              letterSpacing: '0.1em'
+              letterSpacing: '0.1em',
+              alignSelf: 'flex-start'
             }}
           >
             FIRMWARE_CORE // 0x535953
           </div>
 
-          <h1 class="title-xl" style="color: var(--text-primary); margin-bottom: 20px;">
+          <h1 class="title-xl" style="color: var(--text-primary); margin-bottom: 20px; text-align: left; font-size: clamp(2.8rem, 5vw, 4.5rem);">
             Mohamed Gedan
-            <span style="display: block; color: var(--primary); font-size: clamp(1.4rem, 3vw, 2.5rem); font-family: var(--font-mono); font-weight: 500; margin-top: 10px;">
-              Senior Embedded Systems &amp; Firmware Engineer &amp; Embedded Linux
+            <span style="display: flex; flex-direction: column; gap: 4px; color: var(--primary); font-size: clamp(1.2rem, 2.5vw, 2rem); font-family: var(--font-mono); font-weight: 500; margin-top: 12px; text-align: left; line-height: 1.5;">
+              <span>Senior Embedded Software Engineer <span style="color: var(--text-muted);">\</span></span>
+              <span>Firmware &amp; Embedded Linux <span style="color: var(--text-muted);">\</span></span>
+              <span>SCADA &amp; EMS Engineer</span>
             </span>
           </h1>
 
@@ -48,12 +51,12 @@ import ProjectShowcase from '../components/ProjectShowcase';
             // SUMMARY
           </h2>
           
-          <p class="body-md" style="margin-bottom: 36px; max-w: 640px; text-align: justify; line-height: 1.6; color: var(--text-secondary);">
+          <p class="body-md" style="margin-bottom: 36px; max-width: 640px; text-align: left; line-height: 1.6; color: var(--text-secondary);">
             Senior Embedded Software Engineer with 7+ years of experience in low-level embedded systems and microcontroller-based development. Strong background in Embedded C/C++, Embedded Linux, peripheral drivers, real-time systems, and hardware-near debugging. Experienced across the full software development lifecycle, including design, implementation, verification, and system integration. Proven delivery of mission-critical software in globally distributed teams, with hands-on CI/CD automation.
           </p>
 
           <!-- Quick Action Buttons -->
-          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; justify-content: flex-start;">
             <a href="#" class="btn btn-primary text-mono">
               <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
               Download CV (PDF) - English Version
