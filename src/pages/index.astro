@@ -17,7 +17,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
       <div style="width: 100%; display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter-desktop); align-items: center;">
         
         <!-- Summary & Actions -->
-        <div class="reveal" style="grid-column: span 7; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+        <div class="reveal" style="grid-column: span 9; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
           <div 
             style={{
               display: 'inline-block',
@@ -35,7 +35,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
               alignSelf: 'flex-start'
             }}
           >
-            FIRMWARE_CORE // 0x535953
+            SOFTWARE_CORE & SCADA_SYSTEMS
           </div>
 
           <h1 class="title-xl" style="color: var(--text-primary); margin-bottom: 20px; text-align: left; font-size: clamp(2.8rem, 5vw, 4.5rem);">
@@ -51,7 +51,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
             // SUMMARY
           </h2>
           
-          <p class="body-md" style="margin-bottom: 36px; max-width: 640px; text-align: left; line-height: 1.6; color: var(--text-secondary);">
+          <p class="body-md" style="margin-bottom: 36px; text-align: justify; line-height: 1.6; color: var(--text-secondary);">
             Senior Embedded Software Engineer with 7+ years of experience in low-level embedded systems and microcontroller-based development. Strong background in Embedded C/C++, Embedded Linux, peripheral drivers, real-time systems, and hardware-near debugging. Experienced across the full software development lifecycle, including design, implementation, verification, and system integration. Proven delivery of mission-critical software in globally distributed teams, with hands-on CI/CD automation.
           </p>
 
@@ -76,7 +76,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         </div>
 
         <!-- Terminal Console Emulator -->
-        <div class="reveal" style="grid-column: span 5; position: relative; z-index: 10;">
+        <div class="reveal" style="grid-column: span 3; position: relative; z-index: 10;">
           <InteractiveTerminal client:load />
         </div>
       </div>
