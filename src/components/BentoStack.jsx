@@ -12,14 +12,9 @@ const SKILLS_DATA = [
     skills: ['Python', 'Bash (Strong)', 'Batch']
   },
   {
-    category: 'Embedded Systems',
+    category: 'Embedded',
     icon: 'developer_board',
-    skills: ['ARM Cortex-M', 'RISC-V (toolchain)', 'Bare-metal development']
-  },
-  {
-    category: 'Operating systems',
-    icon: 'computer',
-    skills: ['Embedded Linux', 'Yocto', 'BitBake', 'RTOS (FreeRTOS, Zephyr, TI-RTOS)']
+    skills: ['Embedded Linux', 'Yocto', 'BitBake', 'RTOS', 'Bare-metal development', 'ARM Cortex-M', 'RISC-V (toolchain)']
   },
   {
     category: 'Interfaces',
@@ -27,44 +22,34 @@ const SKILLS_DATA = [
     skills: ['SPI', 'UART', 'I2C', 'CAN', 'ADC']
   },
   {
-    category: 'Industrial Communication',
+    category: 'Industrial Communication Protocols',
     icon: 'lan',
-    skills: ['EtherCAT', 'PROFINET', 'CANopen', 'OPC UA FX', 'IEC61850 (basics)', 'Modbus']
+    skills: ['EtherCAT', 'PROFINET', 'CANopen', 'OPC UA FX', 'IEC61850 (basics)']
   },
   {
-    category: 'Cybersecurity',
+    category: 'Firmware Security',
     icon: 'verified_user',
-    skills: ['Secure Boot', 'TPM Integration', 'Certificate Lifecycle', 'OTA Updates', 'Threat Modeling']
+    skills: ['Secure Boot', 'TPM', 'Certificate Lifecycle Management', 'OTA Firmware Updates', 'Threat Modeling']
   },
   {
-    category: 'DevOps',
+    category: 'DevOps / Platformers',
     icon: 'autoplay',
-    skills: ['Git Flow', 'GitHub Actions', 'Azure DevOps', 'Docker Containers']
+    skills: ['Git', 'CI/CD Pipelines (GitHub Actions, Azure DevOps)', 'Docker', 'Jira', 'Confluence', 'MATLAB']
   },
   {
-    category: 'Platformers',
-    icon: 'layers',
-    skills: ['Git', 'Jira', 'Confluence', 'MATLAB']
-  },
-  {
-    category: 'Debugging',
+    category: 'Debugging / Testing',
     icon: 'bug_report',
-    skills: ['GNU GDB', 'Serial Terminal', 'Wireshark', 'CAN Bus Analyzer', 'Green Hills MULTI', 'J-LINK']
+    skills: ['GNU GDB', 'Google Test (GTest)', 'Serial Terminal', 'Wireshark', 'CAN Bus Analyzer', 'Green Hills MULTI', 'J-LINK']
   },
   {
-    category: 'Testing',
-    icon: 'rule',
-    skills: ['Google Test (GTest)', 'Unit Testing', 'Function Coverage', 'Line Coverage']
-  },
-  {
-    category: 'Edge AI',
+    category: 'AI & ML',
     icon: 'psychology',
-    skills: ['ollama', 'MCP (Model Context)', 'LLM Gemma 2B']
+    skills: ['ollama', 'MCP', 'LLM Gemma 2B']
   },
   {
     category: 'Methodologies',
     icon: 'account_tree',
-    skills: ['Agile / SAFe 6', 'Scrum / Kanban', 'SDLC Processes', 'Technical Docs', 'Cross-collaboration']
+    skills: ['Agile', 'SAFe', 'Scrum', 'Kanban', 'SDLC', 'Cross-functional collaboration', 'Technical documentation']
   }
 ];
 

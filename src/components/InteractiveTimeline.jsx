@@ -172,7 +172,7 @@ export default function InteractiveTimeline() {
                 opacity: isExpanded ? 1 : 0,
                 overflow: 'hidden',
                 transition: 'max-height 500ms ease, opacity 500ms ease',
-                borderLeft: isExpanded ? '2px solid rgba(192, 193, 255, 0.15)' : '2px solid transparent',
+                borderLeft: isExpanded ? '2px solid rgba(88, 166, 255, 0.2)' : '2px solid transparent',
                 paddingLeft: isExpanded ? '16px' : '0px',
                 marginTop: '8px'
               }}

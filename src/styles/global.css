@@ -1,33 +1,33 @@
-/* 
+/*
    Mohamed Gedan - Design System Style Sheet
-   Visual Theme: "Clarity of the Machine"
-   Strict Dark Mode / Premium Technical Aesthetic
+   Visual Theme: "Dark Infrastructure Dashboard / Cyberpunk Engineering"
+   Strict Dark Mode / High-Contrast Technical Aesthetic
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
 :root {
-  /* Color Palette */
-  --bg-color: #0b1326;                /* surface-dim / background */
-  --surface-color: #0b1326;           /* surface */
-  --card-bg: #171f33;                 /* surface-container */
-  --card-bg-high: #222a3d;            /* surface-container-high */
-  --card-bg-lowest: #060e20;          /* surface-container-lowest */
-  --card-border: #2d3449;             /* surface-variant */
-  --text-primary: #dae2fd;            /* on-surface */
-  --text-secondary: #c7c4d7;          /* on-surface-variant */
-  --text-muted: #908fa0;              /* outline */
-  --border-muted: #464554;            /* outline-variant */
-  
-  /* Accent Colors */
-  --primary: #c0c1ff;                 /* electric lavender-indigo */
-  --primary-rgb: 192, 193, 255;
-  --primary-glow: rgba(192, 193, 255, 0.15);
-  
-  --secondary: #d0bcff;               /* deep lavender */
-  --tertiary: #ffb783;                /* cyber orange */
-  --tertiary-container: #d97721;
-  --error: #ffb4ab;
+  /* Color Palette — abdullahabas.de inspired */
+  --bg-color: #0D1117;                /* near-black charcoal */
+  --surface-color: #0D1117;           /* surface */
+  --card-bg: #161B22;                 /* surface-container */
+  --card-bg-high: #1C2128;            /* surface-container-high */
+  --card-bg-lowest: #090D12;          /* surface-container-lowest */
+  --card-border: #30363D;             /* border / outline */
+  --text-primary: #F0F6FC;            /* off-white */
+  --text-secondary: #8B949E;          /* muted gray */
+  --text-muted: #6E7681;              /* dimmed */
+  --border-muted: #3D444D;            /* outline-variant */
+
+  /* Accent Colors — cyan / electric-blue infrastructure palette */
+  --primary: #58A6FF;                 /* electric blue-cyan */
+  --primary-rgb: 88, 166, 255;
+  --primary-glow: rgba(88, 166, 255, 0.15);
+
+  --secondary: #00D4FF;               /* bright cyan */
+  --tertiary: #F0883E;                /* amber-orange contrast */
+  --tertiary-container: #C65B10;
+  --error: #FF7B72;
   
   /* Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -143,10 +143,10 @@ nav {
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(11, 19, 38, 0.8);
-  backdrop-filter: blur(12px);
-  border-b: 1px solid var(--card-border);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(13, 17, 23, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 nav .nav-container {
@@ -258,12 +258,12 @@ nav .nav-links a.active {
 .btn-primary {
   background: var(--primary);
   color: var(--card-bg-lowest);
-  box-shadow: 0 4px 15px rgba(192, 193, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.25);
 }
 
 .btn-primary:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 0 20px rgba(192, 193, 255, 0.45);
+  filter: brightness(1.12);
+  box-shadow: 0 0 22px rgba(var(--primary-rgb), 0.5);
   transform: scale(1.02);
 }
 
@@ -293,7 +293,7 @@ nav .nav-links a.active {
   color: var(--primary);
   padding: 8px 0;
   border: none;
-  border-bottom: 1px solid rgba(192, 193, 255, 0.3);
+  border-bottom: 1px solid rgba(var(--primary-rgb), 0.3);
   border-radius: 0;
 }
 
