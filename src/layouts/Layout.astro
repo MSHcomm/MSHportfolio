@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ParticleSphere from '../components/ParticleSphere';
 
 interface Props {
   title?: string;
@@ -77,6 +78,9 @@ const {
         <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Get in Touch</a>
       </div>
     </nav>
+
+    <!-- 3D Particle Sphere — fixed canvas layer behind all content -->
+    <ParticleSphere client:only="react" />
 
     <!-- Main Content Slot -->
     <slot />
