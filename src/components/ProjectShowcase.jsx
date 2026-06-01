@@ -152,17 +152,6 @@ export default function ProjectShowcase() {
             </div>
 
             <div>
-              <div style={{ marginBottom: '24px' }}>
-                <div style={{ display: 'flex', gap: '8px', fontSize: '12px', fontFamily: 'var(--font-mono)', marginBottom: '8px' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>HW_CORE:</span>
-                  <span style={{ color: 'var(--text-primary)' }}>{project.mcu}</span>
-                </div>
-                <div style={{ display: 'flex', gap: '8px', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>PROTOCOLS:</span>
-                  <span style={{ color: 'var(--primary)' }}>{project.protocols}</span>
-                </div>
-              </div>
-
               <button
                 onClick={() => setActiveProject(project)}
                 className="btn btn-secondary text-mono"
