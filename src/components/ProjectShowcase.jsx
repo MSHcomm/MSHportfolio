@@ -57,6 +57,25 @@ const PROJECTS = {
         { label: 'DIAGNOSTICS', value: 'Runtime logging · On-chip ring buffer · Fault analysis' },
       ],
     },
+    {
+      id: 'PRJ-019',
+      title: 'SCADA · ADMS · EMS',
+      company: 'South Cairo Electricity Distribution Company',
+      image: '/images/projects/SCADA_ADMS_EcoStructure.jpg',
+      architecture: 'Deployed and validated ADMS/SCADA systems for an Energy Management System on an MV power distribution network. Commissioned 65+ SCADA RMUs and RTUs across live substations, integrating field devices with the EMS dispatch center and DMS network modeling tools to maximise grid visibility and enable rapid fault isolation.',
+      specs: [
+        { label: 'DEPLOYMENT', value: 'Deployed and validated ADMS/SCADA systems for Energy Management System on MV power distribution network' },
+        { label: 'COMMISSIONING', value: '65+ SCADA RMUs and RTUs — configuration, testing, and integration' },
+        { label: 'INTEGRATION', value: 'SCADA integrated with network modeling tools and DMS systems to enhance grid visibility' },
+        { label: 'COMMUNICATION', value: 'Data communication between field devices and the Energy Management System (EMS) at the dispatch center' },
+        { label: 'FIELD OPS', value: 'Fault isolation and service restoration in MV — Ring Main Units, SubStations, Transformers' },
+        { label: 'TRAINING', value: 'Certified trainer — SCADA/ADMS/EMS system usage and operation' },
+        { label: 'TESTING', value: 'System testing, commissioning, and troubleshooting of RTUs and substations' },
+        { label: 'SYSTEMS', value: 'SCADA · ADMS · EMS · RTU · RMU · DMS' },
+        { label: 'PROTOCOLS', value: 'IEC 60870-5-101/104 · DNP3 · Modbus · IEC 61850 (basics)' },
+        { label: 'PERIOD', value: '2019 – 2022' },
+      ],
+    },
   ],
   de: [
     {
@@ -112,11 +131,30 @@ const PROJECTS = {
         { label: 'DIAGNOSE', value: 'Laufzeit-Logging · On-Chip-Ringpuffer · Fehleranalyse' },
       ],
     },
+    {
+      id: 'PRJ-019',
+      title: 'SCADA · ADMS · EMS',
+      company: 'South Cairo Electricity Distribution Company',
+      image: '/images/projects/SCADA_ADMS_EcoStructure.jpg',
+      architecture: 'Deployment und Validierung von ADMS/SCADA-Systemen für ein Energiemanagementsystem in einem MS-Stromverteilungsnetz. Inbetriebnahme von über 65 SCADA-RMUs und RTUs in Live-Umspannwerken, Integration von Feldgeräten mit der EMS-Leitstelle und DMS-Netzmodellierungswerkzeugen zur Maximierung der Netztransparenz und schnellen Fehlerisolation.',
+      specs: [
+        { label: 'DEPLOYMENT', value: 'Deployment und Validierung von ADMS/SCADA-Systemen für das Energiemanagementsystem im MS-Stromnetz' },
+        { label: 'INBETRIEBNAHME', value: 'Über 65 SCADA-RMUs und RTUs — Konfiguration, Test und Integration' },
+        { label: 'INTEGRATION', value: 'SCADA-Integration mit Netzmodellierungstools und DMS-Systemen zur Verbesserung der Netztransparenz' },
+        { label: 'KOMMUNIKATION', value: 'Datenkommunikation zwischen Feldgeräten und dem Energiemanagementsystem (EMS) in der Leitstelle' },
+        { label: 'FELDBETRIEB', value: 'Fehlerisolation und Wiederherstellung im MS-Netz — Ringkabelverteilungen, Umspannwerke, Transformatoren' },
+        { label: 'SCHULUNG', value: 'Zertifizierter Trainer — Schulungen zur Nutzung und zum Betrieb von SCADA/ADMS/EMS' },
+        { label: 'TESTING', value: 'Systemtest, Inbetriebnahme und Fehlersuche an RTUs und Umspannwerken' },
+        { label: 'SYSTEME', value: 'SCADA · ADMS · EMS · RTU · RMU · DMS' },
+        { label: 'PROTOKOLLE', value: 'IEC 60870-5-101/104 · DNP3 · Modbus · IEC 61850 (Grundlagen)' },
+        { label: 'ZEITRAUM', value: '2019 – 2022' },
+      ],
+    },
   ],
 };
 
 function ImagePlaceholder({ id }) {
-  const colors = { 'PRJ-081': '#0d1f3c', 'PRJ-094': '#0d2a1f', 'PRJ-035': '#1f0d2a' };
+  const colors = { 'PRJ-081': '#0d1f3c', 'PRJ-094': '#0d2a1f', 'PRJ-035': '#1f0d2a', 'PRJ-019': '#1a1400' };
   const bg = colors[id] || '#0d1a2e';
   return (
     <div style={{

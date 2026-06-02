@@ -9,28 +9,36 @@ let targetMouseX   = 0;
 let targetMouseY   = 0;
 
 // ── Camera Controller ─────────────────────────────────────────────────────────
-// §4.1 mouse → camera rotation  |  §4.2 scroll → camera Z (fly-through)
+// Oscillating Z (in-out breathing) + sinusoidal X sway (zigzag) + mouse look
 function CameraController() {
   const { camera } = useThree();
   const mx = useRef(0);
   const my = useRef(0);
 
-  useFrame(() => {
+  useFrame((state) => {
+    const t = state.clock.elapsedTime;
+
+    // Smooth mouse lag
     mx.current += (targetMouseX - mx.current) * 0.04;
     my.current += (targetMouseY - my.current) * 0.04;
-
     camera.rotation.y = mx.current * 0.08;
     camera.rotation.x = my.current * 0.05;
 
-    const targetZ = 5 - scrollProgress * 12;
-    camera.position.z += (targetZ - camera.position.z) * 0.055;
+    // In-out: breathe ±2.5 units (~18 s period), scroll adds a mild push forward
+    const breathe    = Math.sin(t * 0.35) * 2.5;
+    const targetZ    = 5 - scrollProgress * 5 + breathe;
+    camera.position.z += (targetZ - camera.position.z) * 0.04;
+
+    // Zigzag: sway ±1.2 units left-right (~28 s period)
+    const swayX = Math.sin(t * 0.22) * 1.2;
+    camera.position.x += (swayX - camera.position.x) * 0.02;
   });
 
   return null;
 }
 
 // ── GPU Particle Field ────────────────────────────────────────────────────────
-// Float32Array → BufferGeometry → THREE.Points (GPU rendered, uploaded once)
+// Random star field — uploaded to GPU once, slowly drifts
 function ParticleField({ count }) {
   const ref = useRef();
 
@@ -56,10 +64,10 @@ function ParticleField({ count }) {
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.07}
+        size={0.04}
         color="#58A6FF"
         transparent
-        opacity={0.5}
+        opacity={0.45}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
         depthWrite={false}
@@ -68,35 +76,51 @@ function ParticleField({ count }) {
   );
 }
 
-// ── Floating Object ───────────────────────────────────────────────────────────
-// Depth layers via Z position | sinusoidal Y + continuous rotation
-function FloatingObject({ position, color, emissive, speed, rotY, rotX, children }) {
+// ── Dotted Ball ───────────────────────────────────────────────────────────────
+// 900 fibonacci dots on a small sphere — slow rotation + sinusoidal bob
+function DottedBall() {
   const ref   = useRef();
-  const baseY = position[1];
   const phase = useRef(Math.random() * Math.PI * 2);
+
+  const positions = useMemo(() => {
+    const count  = 900;
+    const radius = 0.9;                            // smaller ball
+    const arr    = new Float32Array(count * 3);
+    const phi    = Math.PI * (3 - Math.sqrt(5));   // golden angle
+    for (let i = 0; i < count; i++) {
+      const y     = 1 - (i / (count - 1)) * 2;
+      const r     = Math.sqrt(1 - y * y);
+      const theta = phi * i;
+      arr[i * 3]     = Math.cos(theta) * r * radius;
+      arr[i * 3 + 1] = y * radius;
+      arr[i * 3 + 2] = Math.sin(theta) * r * radius;
+    }
+    return arr;
+  }, []);
 
   useFrame((_, delta) => {
     if (!ref.current) return;
-    phase.current += delta * speed;
-    ref.current.position.y  = baseY + Math.sin(phase.current) * 0.55;
-    ref.current.rotation.y += delta * rotY;
-    ref.current.rotation.x += delta * rotX;
+    phase.current          += delta * 0.45;
+    ref.current.position.y  = Math.sin(phase.current) * 0.45;
+    ref.current.rotation.y += delta * 0.18;
+    ref.current.rotation.x += delta * 0.07;
   });
 
   return (
-    <mesh ref={ref} position={position}>
-      {children}
-      <meshStandardMaterial
-        color={color}
-        emissive={emissive}
-        emissiveIntensity={0.55}
-        wireframe
+    <points ref={ref} position={[5, 0, -3]}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.025}
+        color="#58A6FF"
         transparent
-        opacity={0.5}
+        opacity={0.85}
+        sizeAttenuation
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
-    </mesh>
+    </points>
   );
 }
 
@@ -111,27 +135,7 @@ function Scene({ particleCount }) {
 
       <CameraController />
       <ParticleField count={particleCount} />
-
-      {/* z: -3 (foreground) → -30 (deep background) — parallax depth layers */}
-      <FloatingObject position={[3.5, 0.5, -3]}    color="#58A6FF" emissive="#58A6FF" speed={0.50} rotY={0.22} rotX={0.10}>
-        <icosahedronGeometry args={[1.4, 1]} />
-      </FloatingObject>
-
-      <FloatingObject position={[-4, -0.5, -11]}   color="#F0883E" emissive="#F0883E" speed={0.35} rotY={0.16} rotX={0.07}>
-        <torusKnotGeometry args={[0.9, 0.28, 100, 16]} />
-      </FloatingObject>
-
-      <FloatingObject position={[1.5, 2.5, -8]}    color="#00D4FF" emissive="#00D4FF" speed={0.60} rotY={0.28} rotX={0.14}>
-        <octahedronGeometry args={[1.1]} />
-      </FloatingObject>
-
-      <FloatingObject position={[-2.5, -1.5, -22]} color="#58A6FF" emissive="#58A6FF" speed={0.28} rotY={0.13} rotX={0.06}>
-        <icosahedronGeometry args={[1.8, 1]} />
-      </FloatingObject>
-
-      <FloatingObject position={[4.5, 1, -30]}     color="#00D4FF" emissive="#F0883E" speed={0.40} rotY={0.19} rotX={0.09}>
-        <torusGeometry args={[1.3, 0.38, 16, 60]} />
-      </FloatingObject>
+      <DottedBall />
 
       <EffectComposer>
         <Bloom luminanceThreshold={0.05} luminanceSmoothing={0.85} intensity={1.5} mipmapBlur />
@@ -141,9 +145,8 @@ function Scene({ particleCount }) {
 }
 
 // ── Root Island ───────────────────────────────────────────────────────────────
-// client:only="react" — fixed canvas behind all UI, pointer-events none
 export default function MainScene() {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const isMobile      = typeof window !== 'undefined' && window.innerWidth < 768;
   const particleCount = isMobile ? 600 : 2500;
 
   useEffect(() => {

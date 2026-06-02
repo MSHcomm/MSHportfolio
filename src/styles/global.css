@@ -9,7 +9,6 @@
 :root {
   /* Color Palette — abdullahabas.de inspired */
   --bg-color: #0D1117;                /* near-black charcoal */
-  --surface-color: #0D1117;           /* surface */
   --card-bg: #161B22;                 /* surface-container */
   --card-bg-high: #1C2128;            /* surface-container-high */
   --card-bg-lowest: #090D12;          /* surface-container-lowest */
@@ -54,7 +53,6 @@
 /* Light Theme Overrides */
 [data-theme="light"] {
   --bg-color: #F6F8FA;
-  --surface-color: #F6F8FA;
   --card-bg: #FFFFFF;
   --card-bg-high: #F0F2F5;
   --card-bg-lowest: #EAECF0;
@@ -174,34 +172,37 @@ nav .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 60px;
 }
 
 nav .logo {
   font-family: var(--font-mono);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--primary);
   text-decoration: none;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 nav .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 20px;
   align-items: center;
 }
 
 nav .nav-links a {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition-snappy);
   padding: 4px 0;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 nav .nav-links a:hover, nav .nav-links a.active {
