@@ -3,6 +3,7 @@ import '../styles/global.css';
 import MainScene      from '../components/MainScene';
 import SmoothScroll   from '../components/SmoothScroll';
 import LanguageToggle from '../components/LanguageToggle';
+import ThemeToggle    from '../components/ThemeToggle';
 
 interface Props {
   title?: string;
@@ -39,6 +40,14 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
 
+    <!-- Theme FOUC prevention: apply saved theme before first paint -->
+    <script is:inline>
+      (function() {
+        if (localStorage.getItem('theme') === 'light')
+          document.documentElement.setAttribute('data-theme', 'light');
+      })();
+    </script>
+
     <!-- Google Material Symbols Outlined -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
   </head>
@@ -58,6 +67,7 @@ const {
           <a href="#languages"      class="nav-item"><span data-de="Sprachen">Languages</span></a>
           <a href="#education"      class="nav-item"><span data-de="Ausbildung">Education</span></a>
           <a href="#reference"      class="nav-item"><span data-de="Referenzen">References</span></a>
+          <ThemeToggle client:load />
           <LanguageToggle client:load />
           <a href="#contact" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.8rem; height: auto;">
             <span data-de="KONTAKT">GET IN TOUCH</span>
@@ -67,6 +77,7 @@ const {
         <!-- Mobile Nav Trigger Icons -->
         <div class="mobile-icons-container" style="display: none; gap: 12px; color: var(--primary);">
           <span class="material-symbols-outlined">terminal</span>
+          <ThemeToggle client:load />
           <LanguageToggle client:load />
           <span class="material-symbols-outlined" id="mobile-menu-toggle" style="cursor: pointer;">menu</span>
         </div>

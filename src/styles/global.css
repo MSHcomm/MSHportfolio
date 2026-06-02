@@ -51,6 +51,27 @@
   --transition-smooth: 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Light Theme Overrides */
+[data-theme="light"] {
+  --bg-color: #F6F8FA;
+  --surface-color: #F6F8FA;
+  --card-bg: #FFFFFF;
+  --card-bg-high: #F0F2F5;
+  --card-bg-lowest: #EAECF0;
+  --card-border: #D0D7DE;
+  --text-primary: #1F2328;
+  --text-secondary: #57606A;
+  --text-muted: #8C959F;
+  --border-muted: #BFC8D3;
+  --primary: #0969DA;
+  --primary-rgb: 9, 105, 218;
+  --primary-glow: rgba(9, 105, 218, 0.12);
+  --secondary: #0A6C74;
+  --tertiary: #CF4B00;
+  --tertiary-container: #A03500;
+  --error: #D1242F;
+}
+
 /* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
