@@ -17,12 +17,12 @@ import ProjectShowcase from '../components/ProjectShowcase';
       <div style="width: 100%; display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter-desktop); align-items: center;">
         
         <!-- Summary & Actions -->
-        <div class="reveal" style="grid-column: span 7; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+        <div class="reveal" style="grid-column: span 9; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
           <div 
             style={{
               display: 'inline-block',
-              background: 'rgba(192, 193, 255, 0.1)',
-              border: '1px solid rgba(192, 193, 255, 0.3)',
+              background: 'rgba(88, 166, 255, 0.1)',
+              border: '1px solid rgba(88, 166, 255, 0.3)',
               color: 'var(--primary)',
               fontFamily: 'var(--font-mono)',
               fontSize: '10px',
@@ -35,7 +35,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
               alignSelf: 'flex-start'
             }}
           >
-            FIRMWARE_CORE // 0x535953
+            <span data-de="MSH Comm">MSH Comm</span>
           </div>
 
           <h1 class="title-xl" style="color: var(--text-primary); margin-bottom: 20px; text-align: left; font-size: clamp(2.8rem, 5vw, 4.5rem);">
@@ -43,40 +43,41 @@ import ProjectShowcase from '../components/ProjectShowcase';
             <span style="display: flex; flex-direction: column; gap: 4px; color: var(--primary); font-size: clamp(1.2rem, 2.5vw, 2rem); font-family: var(--font-mono); font-weight: 500; margin-top: 12px; text-align: left; line-height: 1.5;">
               <span>Senior Embedded Software Engineer <span style="color: var(--text-muted);">\</span></span>
               <span>Firmware &amp; Embedded Linux <span style="color: var(--text-muted);">\</span></span>
-              <span>SCADA &amp; EMS Engineer</span>
+              <span>SCADA &amp; EMS Engineer <span style="color: var(--text-muted);">\</span></span>
             </span>
           </h1>
 
-          <h2 style="font-family: var(--font-mono); font-size: 13px; color: var(--secondary); margin-bottom: 12px; letter-spacing: 0.1em;">
-            // SUMMARY
-          </h2>
-          
-          <p class="body-md" style="margin-bottom: 36px; max-width: 640px; text-align: left; line-height: 1.6; color: var(--text-secondary);">
-            Senior Embedded Software Engineer with 7+ years of experience in low-level embedded systems and microcontroller-based development. Strong background in Embedded C/C++, Embedded Linux, peripheral drivers, real-time systems, and hardware-near debugging. Experienced across the full software development lifecycle, including design, implementation, verification, and system integration. Proven delivery of mission-critical software in globally distributed teams, with hands-on CI/CD automation.
-          </p>
+          <div class="bento-cell" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 36px;">
+            <h2 style="font-family: var(--font-mono); font-size: 12px; color: var(--secondary); margin-bottom: 12px; letter-spacing: 0.1em;">
+              <span data-de="// PROFIL">// CORE_PROFILE</span>
+            </h2>
+            <p class="body-md" style="margin: 0; text-align: justify; line-height: 1.6; color: var(--text-secondary);">
+              <span data-de="Senior Embedded Software Engineer mit mehr als 7 Jahren Erfahrung in hardwarenaher Embedded-Softwareentwicklung und Mikrocontroller-basierten Systemen. sowie mehr als 7 Jahren Tätigkeit als Systemingenieur in der industriellen Automatisierung. Fundierte Kenntnisse in Embedded Linux (Yocto/PetaLinux), Secure Boot, Geräteidentität und Zertifikatslebenszyklus-Management. Nachgewiesene Erfolge bei der Entwicklung und Auslieferung missionskritischer Antriebssoftware in global verteilten Teams, inklusive Hands-on CI/CD-Automatisierung.">Senior Embedded Software Engineer with 7+ years of experience in low-level embedded systems and microcontroller-based development. Strong background in Embedded C/C++, Embedded Linux, peripheral drivers, real-time systems, and hardware-near debugging. Experienced across the full software development lifecycle, including design, implementation, verification, and system integration. Proven delivery of mission-critical software in globally distributed teams, with hands-on CI/CD automation.</span>
+            </p>
+          </div>
 
           <!-- Quick Action Buttons -->
           <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; justify-content: flex-start;">
-            <a href="#" class="btn btn-primary text-mono">
+            <a href="/files/Mohamed Gedan - CV.pdf" download class="btn btn-primary text-mono">
               <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
-              Download CV (PDF) - English Version
+              <span data-de="Lebenslauf (PDF) – Englische Version">Download CV (PDF) - English Version</span>
             </a>
-            <a href="#" class="btn btn-secondary text-mono">
+            <a href="/files/Mohamed Gedan - Lebenslauf.pdf" download class="btn btn-secondary text-mono">
               <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
-              Download CV (PDF) - German Version
+              <span data-de="Lebenslauf (PDF) – Deutsche Version">Download CV (PDF) - German Version</span>
             </a>
-            <a href="#reference" class="btn btn-secondary text-mono">
+            <a href="/files/Empfehlungsschreiben_Mohamed_Gedan_SE.pdf" download class="btn btn-secondary text-mono">
               <span class="material-symbols-outlined" style="font-size: 18px;">article</span>
-              Download Recommendation letter (PDF)
+              <span data-de="Empfehlungsschreiben (PDF) herunterladen">Download Recommendation letter (PDF)</span>
             </a>
             <a href="#contact" class="btn btn-text text-mono" style="margin-left: 8px;">
-              Get in Touch ➜
+              <span data-de="Kontakt ➜">Get in Touch ➜</span>
             </a>
           </div>
         </div>
 
         <!-- Terminal Console Emulator -->
-        <div class="reveal" style="grid-column: span 5; position: relative; z-index: 10;">
+        <div class="reveal" style="grid-column: span 3; position: relative; z-index: 10;">
           <InteractiveTerminal client:load />
         </div>
       </div>
@@ -85,7 +86,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
     <!-- 2. WORK EXPERIENCE -->
     <section id="experience" class="container" style="padding-top: 100px; padding-bottom: 60px; position: relative;">
       <div class="section-divider reveal">
-        <h2>01. WORK_EXPERIENCE</h2>
+        <h2><span data-de="01. BERUFSERFAHRUNG">01. WORK_EXPERIENCE</span></h2>
         <div class="line"></div>
       </div>
       <div style="margin-bottom: 80px;">
@@ -97,7 +98,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 36px;">
           <span class="material-symbols-outlined" style="color: var(--primary); font-size: 20px;">schema</span>
           <h3 style="font-family: var(--font-mono); font-size: 14px; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.1em;">
-            // WORK_EXPERIENCE_ARTIFACTS // SYSTEM_ARCHITECTURE_SPECS
+            <span data-de="// EINGESETZTE_ARTEFAKTE // SYSTEMARCHITEKTUR_SPECS">// DEPLOYED_ARTIFACTS // SYSTEM_ARCHITECTURE_SPECS</span>
           </h3>
         </div>
         <ProjectShowcase client:load />
@@ -107,7 +108,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
     <!-- 3. SKILLS & TOOLS (Bento Stack with 13 vertical columns) -->
     <section id="skills" class="container" style="padding-top: 100px; padding-bottom: 100px; position: relative;">
       <div class="section-divider reveal">
-        <h2>02. SKILLS_&amp;_TOOLS</h2>
+        <h2><span data-de="02. FÄHIGKEITEN_&amp;_WERKZEUGE">02. SKILLS_&amp;_TOOLS</span></h2>
         <div class="line"></div>
       </div>
       <div class="reveal">
@@ -118,7 +119,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
     <!-- 4. CERTIFICATIONS -->
     <section id="certifications" class="container" style="padding-top: 100px; padding-bottom: 100px; position: relative;">
       <div class="section-divider reveal">
-        <h2>03. CERTIFICATIONS</h2>
+        <h2><span data-de="03. ZERTIFIKATE">03. CERTIFICATIONS</span></h2>
         <div class="line"></div>
       </div>
 
@@ -127,15 +128,15 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="bento-cell" style="padding: 24px; background: var(--card-bg);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <span class="material-symbols-outlined" style="color: var(--primary); font-size: 32px;">verified_user</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(192, 193, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px;">
+            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px;">
               01/2026
             </span>
           </div>
           <h3 style="font-family: var(--font-mono); font-size: 15px; color: var(--text-primary); margin-bottom: 8px;">
-            Certified SAFe 6 Practitioner
+            <span data-de="Zertifizierter SAFe® 6 Praktiker">Certified SAFe 6 Practitioner</span>
           </h3>
           <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">
-            Certificate ID: 59568971-4201
+            <span data-de="Zertifikats-ID: 59568971-4201">Certificate ID: 59568971-4201</span>
           </div>
         </div>
 
@@ -143,15 +144,15 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="bento-cell" style="padding: 24px; background: var(--card-bg);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <span class="material-symbols-outlined" style="color: var(--primary); font-size: 32px;">lan</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(192, 193, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px;">
+            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px;">
               02/2024
             </span>
           </div>
           <h3 style="font-family: var(--font-mono); font-size: 15px; color: var(--text-primary); margin-bottom: 8px;">
-            Certified PROFINET Engineer
+            <span data-de="Zertifizierter PROFINET Engineer">Certified PROFINET Engineer</span>
           </h3>
           <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); line-height: 1.4;">
-            PI training center at ČVUT Prague (industrial-automation-group)
+            <span data-de="PI-Trainingszentrum an der ČVUT Prag (industrial-automation-group)">PI training center at ČVUT Prague (industrial-automation-group)</span>
           </div>
         </div>
 
@@ -159,15 +160,15 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="bento-cell" style="padding: 24px; background: var(--card-bg);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <span class="material-symbols-outlined" style="color: var(--primary); font-size: 32px;">bug_report</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(192, 193, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px;">
+            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px;">
               03/2018
             </span>
           </div>
           <h3 style="font-family: var(--font-mono); font-size: 15px; color: var(--text-primary); margin-bottom: 8px;">
-            Certificate Software Tester (ISTQB – FL)
+            <span data-de="Zertifizierter Software Tester (ISTQB – FL)">Certificate Software Tester (ISTQB – FL)</span>
           </h3>
           <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">
-            Certificate #180311012
+            <span data-de="Zertifikats-Nr. 180311012">Certificate #180311012</span>
           </div>
         </div>
       </div>
@@ -176,48 +177,63 @@ import ProjectShowcase from '../components/ProjectShowcase';
     <!-- 5. LANGUAGE -->
     <section id="languages" class="container" style="padding-top: 100px; padding-bottom: 100px; position: relative;">
       <div class="section-divider reveal">
-        <h2>04. LANGUAGE</h2>
+        <h2><span data-de="04. SPRACHEN">04. LANGUAGES</span></h2>
         <div class="line"></div>
       </div>
-      
-      <div class="reveal grid-cols-1 md:grid-cols-3 bento-grid" style="gap: 20px;">
+
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
         <!-- Arabic -->
-        <div class="bento-cell md:col-span-4" style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 140px;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-bottom: 6px;">// MOTHER_TONGUE</div>
-            <h3 style="font-family: var(--font-mono); font-size: 18px; color: var(--text-primary);">Arabic</h3>
+        <div class="bento-cell" style="padding: 28px; background: var(--card-bg); display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;"><span data-de="// MUTTERSPRACHE">// MOTHER_TONGUE</span></div>
+              <h3 style="font-family: var(--font-mono); font-size: 20px; color: var(--text-primary); font-weight: 700;"><span data-de="Arabisch">Arabic</span></h3>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(88, 166, 255, 0.2);"><span data-de="MUTTERSPRACHE">NATIVE</span></span>
           </div>
           <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--primary); margin-bottom: 8px; font-weight: 700;">NATIVE SPEAKER // 100%</div>
-            <div style="height: 4px; background: var(--card-border); border-radius: 2px; overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-bottom: 6px;">
+              <span data-de="KOMPETENZ">PROFICIENCY</span><span style="color: var(--primary); font-weight: 700;">100%</span>
+            </div>
+            <div style="height: 3px; background: var(--card-border); border-radius: 2px; overflow: hidden;">
               <div style="height: 100%; width: 100%; background: var(--primary); border-radius: 2px;"></div>
             </div>
           </div>
         </div>
 
         <!-- English -->
-        <div class="bento-cell md:col-span-4" style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 140px;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-bottom: 6px;">// PROFESSIONAL_COMM</div>
-            <h3 style="font-family: var(--font-mono); font-size: 18px; color: var(--text-primary);">English</h3>
+        <div class="bento-cell" style="padding: 28px; background: var(--card-bg); display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;"><span data-de="// VERHANDLUNGSSICHER">// PROFESSIONAL_COMM</span></div>
+              <h3 style="font-family: var(--font-mono); font-size: 20px; color: var(--text-primary); font-weight: 700;"><span data-de="Englisch">English</span></h3>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(88, 166, 255, 0.2);">C1</span>
           </div>
           <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--primary); margin-bottom: 8px; font-weight: 700;">PROFESSIONAL WORK LIMITS // 95%</div>
-            <div style="height: 4px; background: var(--card-border); border-radius: 2px; overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-bottom: 6px;">
+              <span data-de="KOMPETENZ">PROFICIENCY</span><span style="color: var(--primary); font-weight: 700;">95%</span>
+            </div>
+            <div style="height: 3px; background: var(--card-border); border-radius: 2px; overflow: hidden;">
               <div style="height: 100%; width: 95%; background: var(--primary); border-radius: 2px;"></div>
             </div>
           </div>
         </div>
 
         <!-- German -->
-        <div class="bento-cell md:col-span-4" style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 140px;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-bottom: 6px;">// LOCAL_LANG</div>
-            <h3 style="font-family: var(--font-mono); font-size: 18px; color: var(--text-primary);">German</h3>
+        <div class="bento-cell" style="padding: 28px; background: var(--card-bg); display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;"><span data-de="// AKTIVE_WEITERENTWICKLUNG">// LOCAL_LANG</span></div>
+              <h3 style="font-family: var(--font-mono); font-size: 20px; color: var(--text-primary); font-weight: 700;"><span data-de="Deutsch">German</span></h3>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(88, 166, 255, 0.2);">A2</span>
           </div>
           <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--primary); margin-bottom: 8px; font-weight: 700;">ELEMENTARY // A2 (WILLINGNESS TO IMPROVE)</div>
-            <div style="height: 4px; background: var(--card-border); border-radius: 2px; overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-bottom: 6px;">
+              <span data-de="KOMPETENZ">PROFICIENCY</span><span style="color: var(--primary); font-weight: 700;">45%</span>
+            </div>
+            <div style="height: 3px; background: var(--card-border); border-radius: 2px; overflow: hidden;">
               <div style="height: 100%; width: 45%; background: var(--primary); border-radius: 2px;"></div>
             </div>
           </div>
@@ -228,42 +244,55 @@ import ProjectShowcase from '../components/ProjectShowcase';
     <!-- 6. EDUCATION -->
     <section id="education" class="container" style="padding-top: 100px; padding-bottom: 100px; position: relative;">
       <div class="section-divider reveal">
-        <h2>05. EDUCATION</h2>
+        <h2><span data-de="05. AUSBILDUNG">05. EDUCATION</span></h2>
         <div class="line"></div>
       </div>
-      
-      <div class="bento-grid reveal" style="gap: 24px;">
+
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;">
         <!-- M.Sc. -->
-        <div class="bento-cell md:col-span-6" style="display: flex; gap: 20px; align-items: flex-start; padding: 28px;">
-          <span class="material-symbols-outlined" style="color: var(--primary); font-size: 32px;">school</span>
+        <div class="bento-cell" style="padding: 28px; background: var(--card-bg); display: flex; flex-direction: column; gap: 16px; position: relative;">
+          <div style="position: absolute; top: 20px; right: 20px; font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); border: 1px solid rgba(88, 166, 255, 0.2); padding: 2px 8px; border-radius: 4px;">
+            02/2015 – 02/2016
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span class="material-symbols-outlined" style="color: var(--primary); font-size: 28px;">school</span>
+            <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;"><span data-de="// POSTGRADUIERT">// POSTGRADUATE</span></div>
+          </div>
           <div>
-            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">02/2015 – 02/2016</span>
-            <h3 style="font-family: var(--font-mono); font-size: 16px; margin: 4px 0 8px 0; color: var(--text-primary);">
-              M.Sc. Electronics and Communications Engineering
+            <h3 style="font-family: var(--font-mono); font-size: 15px; color: var(--text-primary); font-weight: 700; margin-bottom: 6px;">
+              <span data-de="M.Sc. Elektrotechnik und Nachrichtentechnik">M.Sc. Electronics &amp; Communications Engineering</span>
             </h3>
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--secondary); margin-bottom: 8px;">
-              Benha University, Faculty of EE. Engineering | Studies discontinued after first year
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--secondary); margin-bottom: 12px;">
+              <span data-de="Benha Universität, Fakultät für Elektrotechnik">Benha University — Faculty of EE. Engineering</span>
             </div>
-            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
-              <strong style="color: var(--primary);">Research paper:</strong> DVB-T Spectrum Sensing for Cognitive Radio over Software Defined Radio (SDR).
+            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; font-family: var(--font-sans);">
+              <span style="color: var(--primary); font-family: var(--font-mono); font-weight: 700;"><span data-de="FORSCHUNG:">RESEARCH:</span></span> <span data-de="DVB-T-Spektrumsensing für Cognitive Radio über Software Defined Radio (SDR).">DVB-T Spectrum Sensing for Cognitive Radio over Software Defined Radio (SDR).</span>
             </p>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.05); color: var(--text-muted); border: 1px dashed var(--card-border); padding: 4px 10px; border-radius: 4px; width: fit-content;">
+            <span data-de="Studium nach dem ersten Jahr abgebrochen">STUDIES_DISCONTINUED_AFTER_YEAR_ONE</span>
           </div>
         </div>
 
         <!-- B.Sc. -->
-        <div class="bento-cell md:col-span-6" style="display: flex; gap: 20px; align-items: flex-start; padding: 28px;">
-          <span class="material-symbols-outlined" style="color: var(--primary); font-size: 32px;">history_edu</span>
+        <div class="bento-cell" style="padding: 28px; background: var(--card-bg); display: flex; flex-direction: column; gap: 16px; position: relative;">
+          <div style="position: absolute; top: 20px; right: 20px; font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); border: 1px solid rgba(88, 166, 255, 0.2); padding: 2px 8px; border-radius: 4px;">
+            09/2005 – 07/2010
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span class="material-symbols-outlined" style="color: var(--primary); font-size: 28px;">history_edu</span>
+            <div style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;"><span data-de="// GRUNDSTUDIUM">// UNDERGRADUATE</span></div>
+          </div>
           <div>
-            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">09/2005 – 07/2010</span>
-            <h3 style="font-family: var(--font-mono); font-size: 16px; margin: 4px 0 8px 0; color: var(--text-primary);">
-              B.Sc. Electronics and Communications Engineering - Honors
+            <h3 style="font-family: var(--font-mono); font-size: 15px; color: var(--text-primary); font-weight: 700; margin-bottom: 6px;">
+              <span data-de="B.Sc. Elektrotechnik und Nachrichtentechnik">B.Sc. Electronics &amp; Communications Engineering</span>
             </h3>
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--secondary); margin-bottom: 8px;">
-              MAM, Faculty of EE. Engineering
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--secondary); margin-bottom: 12px;">
+              <span data-de="MAM, Fakultät für Elektrotechnik">MAM — Faculty of EE. Engineering</span>
             </div>
-            <div style="font-family: var(--font-mono); font-size: 10px; background: rgba(192, 193, 255, 0.1); color: var(--primary); width: fit-content; padding: 3px 10px; border-radius: 4px; font-weight: 700; letter-spacing: 0.05em;">
-              HONORS_GRADUATION_DISTINCTION
-            </div>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); border: 1px solid rgba(88, 166, 255, 0.2); padding: 4px 10px; border-radius: 4px; width: fit-content; font-weight: 700; letter-spacing: 0.05em;">
+            <span data-de="mit Prädikat">HONORS_GRADUATION_DISTINCTION</span>
           </div>
         </div>
       </div>
@@ -272,17 +301,17 @@ import ProjectShowcase from '../components/ProjectShowcase';
     <!-- 7. REFERENCE -->
     <section id="reference" class="container" style="padding-top: 100px; padding-bottom: 100px; position: relative;">
       <div class="section-divider reveal">
-        <h2>06. REFERENCE</h2>
+        <h2><span data-de="06. REFERENZEN">06. REFERENCE</span></h2>
         <div class="line"></div>
       </div>
       
       <div class="reveal bento-cell" style="padding: 40px; background: var(--card-bg); position: relative; border-left: 3px solid var(--primary);">
-        <span class="material-symbols-outlined" style="font-size: 64px; color: rgba(192, 193, 255, 0.1); position: absolute; top: 20px; right: 20px; pointer-events: none; user-select: none;">
+        <span class="material-symbols-outlined" style="font-size: 64px; color: rgba(88, 166, 255, 0.1); position: absolute; top: 20px; right: 20px; pointer-events: none; user-select: none;">
           format_quote
         </span>
         
         <p style="font-family: var(--font-mono); font-size: 15px; line-height: 1.8; color: var(--text-primary); margin-bottom: 28px; font-style: italic;">
-          "I highly recommend Mohamed Gedan as an exceptional Senior Embedded Software Engineer. During our time together, he demonstrated remarkable technical skills and a deep understanding of embedded systems. His expertise in firmware development and his ability to tackle complex challenges with precision and creativity were invaluable to our team..."
+          <span data-de='"Ich empfehle Mohamed Gedan nachdrücklich als außergewöhnlichen Senior Embedded Software Engineer. Während unserer gemeinsamen Zeit zeigte er bemerkenswerte technische Fähigkeiten und ein tiefes Verständnis eingebetteter Systeme. Seine Expertise in der Firmware-Entwicklung und seine Fähigkeit, komplexe Herausforderungen mit Präzision und Kreativität zu meistern, waren für unser Team von unschätzbarem Wert..."'>"I highly recommend Mohamed Gedan as an exceptional Senior Embedded Software Engineer. During our time together, he demonstrated remarkable technical skills and a deep understanding of embedded systems. His expertise in firmware development and his ability to tackle complex challenges with precision and creativity were invaluable to our team..."</span>
         </p>
 
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
@@ -297,10 +326,10 @@ import ProjectShowcase from '../components/ProjectShowcase';
           
           <div style="display: flex; align-items: center; gap: 16px;">
             <a href="#" class="btn btn-secondary text-mono" style="font-size: 11px; padding: 8px 16px;">
-              Request Recommendation letter (Empfehlungsschreiben)
+              <span data-de="Empfehlungsschreiben auf Anfrage erhältlich">Request Recommendation letter (Empfehlungsschreiben)</span>
             </a>
             <span style="font-family: var(--font-mono); font-size: 10px; color: var(--text-muted);">
-              // LinkedIn recommendation also available
+              <span data-de="// LinkedIn Empfehlung ebenfalls verfügbar">// LinkedIn recommendation also available</span>
             </span>
           </div>
         </div>
@@ -313,38 +342,47 @@ import ProjectShowcase from '../components/ProjectShowcase';
         
         <!-- Info text (Spans 7 columns on desktop) -->
         <div style="grid-column: span 7;">
-          <h2 style="font-family: var(--font-mono); font-size: clamp(2rem, 4vw, 3rem); color: var(--primary); margin-bottom: 16px;">
-            Initialize Connection?
+          <h2 style="font-family: var(--font-mono); font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: var(--primary); margin-bottom: 16px;">
+            <span data-de="VERBINDUNG_HERSTELLEN //">ESTABLISH_CONNECTION //</span>
           </h2>
           <p class="body-lg" style="max-w: 520px; color: var(--text-secondary); margin-bottom: 24px;">
-            Open for collaborations on mission-critical embedded systems, firmware architecture consulting, and industrial IoT solutions.
+            <span data-de="Offen für Zusammenarbeit bei missionskritischen Embedded Systems, Firmware-Architekturberatung und industriellen IoT-Lösungen.">Open for collaborations on mission-critical embedded systems, firmware architecture consulting, and industrial IoT solutions.</span>
           </p>
           
           <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--font-mono); font-size: 13px; color: var(--text-secondary);">
             <div style="display: flex; align-items: center; gap: 10px;">
               <span class="material-symbols-outlined" style="color: var(--primary); font-size: 18px;">mail</span>
-              <span>gedan.dev@outlook.com</span>
+              <span>mohamed.gedan.88@gmail.com</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span class="material-symbols-outlined" style="color: var(--primary); font-size: 18px;">phone</span>
+              <span>+49 151 626 420 77</span>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
               <span class="material-symbols-outlined" style="color: var(--primary); font-size: 18px;">location_on</span>
-              <span>Marktheidenfeld, Germany</span>
+              <span>Würzburg, Bayern, Deutschland</span>
             </div>
           </div>
         </div>
 
         <!-- Call to Action forms/buttons (Spans 5 columns on desktop) -->
         <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px; width: 100%;">
-          <a href="mailto:gedan.dev@outlook.com" class="btn btn-primary text-mono" style="padding: 16px; font-size: 13px; width: 100%; display: flex; justify-content: center;">
+          <a href="mailto:mohamed.gedan.88@gmail.com" class="btn btn-primary text-mono" style="padding: 16px; font-size: 13px; width: 100%; display: flex; justify-content: center;">
             <span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
-            OPEN_COMMUNICATION_CHANNEL
+            <span data-de="KOMMUNIKATIONSKANAL_ÖFFNEN">OPEN_COMMUNICATION_CHANNEL</span>
           </a>
-          
+
+          <a href="tel:+4915162642077" class="btn btn-secondary text-mono" style="padding: 14px; font-size: 12px; width: 100%; display: flex; justify-content: center; gap: 8px;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">phone</span>
+            +49 151 626 420 77
+          </a>
+
           <div style="display: flex; justify-content: center; gap: 24px; margin-top: 8px;">
-            <a href="https://linkedin.com/in/mohamed-gedan" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-mono); font-size: 12px; display: flex; align-items: center; gap: 6px;" class="nav-item">
+            <a href="https://www.linkedin.com/in/mohamed-sayed-eng/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-mono); font-size: 12px; display: flex; align-items: center; gap: 6px;" class="nav-item">
               <span class="material-symbols-outlined" style="font-size: 16px;">link</span>
               LinkedIn
             </a>
-            <a href="https://github.com/mgedan" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-mono); font-size: 12px; display: flex; align-items: center; gap: 6px;" class="nav-item">
+            <a href="https://github.com/MSHcomm" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none; font-family: var(--font-mono); font-size: 12px; display: flex; align-items: center; gap: 6px;" class="nav-item">
               <span class="material-symbols-outlined" style="font-size: 16px;">terminal</span>
               GitHub
             </a>
@@ -361,7 +399,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
             MOHAMED GEDAN
           </span>
           <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 4px;">
-            © 2026 CORE_SYSTEMS_LOG. ALL RIGHTS RESERVED. HEX_REF: 0x535953
+            <span data-de="© 2026 KERNSYSTEM_PROTOKOLL. ALLE RECHTE VORBEHALTEN. HEX_REF: 0x535953">© 2026 CORE_SYSTEMS_LOG. ALL RIGHTS RESERVED. HEX_REF: 0x535953</span>
           </div>
         </div>
 
@@ -370,8 +408,8 @@ import ProjectShowcase from '../components/ProjectShowcase';
         </div>
 
         <div style="display: flex; gap: 20px; font-family: var(--font-mono); font-size: 11px;">
-          <a href="https://linkedin.com/in/mohamed-gedan" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none;">LINKEDIN</a>
-          <a href="https://github.com/mgedan" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none;">GITHUB</a>
+          <a href="https://www.linkedin.com/in/mohamed-sayed-eng/" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none;">LINKEDIN</a>
+          <a href="https://github.com/MSHcomm" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none;">GITHUB</a>
         </div>
       </div>
     </footer>

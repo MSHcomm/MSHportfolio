@@ -1,13 +1,17 @@
 ---
 import '../styles/global.css';
+import MainScene      from '../components/MainScene';
+import SmoothScroll   from '../components/SmoothScroll';
+import LanguageToggle from '../components/LanguageToggle';
+import ThemeToggle    from '../components/ThemeToggle';
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const { 
-  title = "Mohamed Gedan | Senior Embedded Systems & Firmware Architect", 
+const {
+  title = "Mohamed Gedan | Senior Embedded Systems & Firmware Architect",
   description = "Mohamed Gedan is a Senior Embedded Systems & Firmware Engineer with 7+ years of experience in low-level systems, Embedded Linux, Yocto, real-time RTOS, and communication protocols like EtherCAT and PROFINET."
 } = Astro.props;
 ---
@@ -20,21 +24,29 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Mohamed Gedan" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+
+    <!-- Theme FOUC prevention: apply saved theme before first paint -->
+    <script is:inline>
+      (function() {
+        if (localStorage.getItem('theme') === 'light')
+          document.documentElement.setAttribute('data-theme', 'light');
+      })();
+    </script>
 
     <!-- Google Material Symbols Outlined -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
@@ -44,119 +56,120 @@ const {
     <nav>
       <div class="container nav-container">
         <a href="#hero" class="logo">
-          MOHAMED GEDAN <span style="font-weight: 300; font-size: 0.8rem; color: var(--text-muted); opacity: 0.7;">// 0x535953</span>
+          MOHAMED GEDAN
         </a>
-        
+
         <div class="nav-links">
-          <a href="#hero" class="nav-item active">Summary</a>
-          <a href="#experience" class="nav-item">Experience</a>
-          <a href="#skills" class="nav-item">Skills</a>
-          <a href="#certifications" class="nav-item">Certifications</a>
-          <a href="#languages" class="nav-item">Languages</a>
-          <a href="#education" class="nav-item">Education</a>
-          <a href="#reference" class="nav-item">References</a>
-          <a href="#contact" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.8rem; height: auto;">GET IN TOUCH</a>
+          <a href="#hero"           class="nav-item active"><span data-de="Zusammenfassung">Summary</span></a>
+          <a href="#experience"     class="nav-item"><span data-de="Erfahrung">Experience</span></a>
+          <a href="#skills"         class="nav-item"><span data-de="Fähigkeiten">Skills</span></a>
+          <a href="#certifications" class="nav-item"><span data-de="Zertifikate">Certifications</span></a>
+          <a href="#languages"      class="nav-item"><span data-de="Sprachen">Languages</span></a>
+          <a href="#education"      class="nav-item"><span data-de="Ausbildung">Education</span></a>
+          <a href="#reference"      class="nav-item"><span data-de="Referenzen">References</span></a>
+          <ThemeToggle client:load />
+          <LanguageToggle client:load />
+          <a href="#contact" class="btn btn-secondary" style="padding: 5px 14px; font-size: 0.72rem; height: auto; white-space: nowrap;">
+            <span data-de="KONTAKT">GET IN TOUCH</span>
+          </a>
         </div>
 
         <!-- Mobile Nav Trigger Icons -->
         <div class="mobile-icons-container" style="display: none; gap: 12px; color: var(--primary);">
           <span class="material-symbols-outlined">terminal</span>
+          <ThemeToggle client:load />
+          <LanguageToggle client:load />
           <span class="material-symbols-outlined" id="mobile-menu-toggle" style="cursor: pointer;">menu</span>
         </div>
       </div>
 
       <!-- Mobile Dropdown -->
       <div id="mobile-menu" style="display: none; flex-direction: column; background: var(--card-bg-lowest); border-bottom: 1px solid var(--card-border); padding: 16px 20px; gap: 16px;">
-        <a href="#hero" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;">// 01. Summary</a>
-        <a href="#experience" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;">// 02. Experience</a>
-        <a href="#skills" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;">// 03. Skills</a>
-        <a href="#certifications" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;">// 04. Certifications</a>
-        <a href="#languages" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;">// 05. Languages</a>
-        <a href="#education" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;">// 06. Education</a>
-        <a href="#reference" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;">// 07. References</a>
-        <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Get in Touch</a>
+        <a href="#hero"           class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;"><span data-de="// 01. Zusammenfassung">// 01. Summary</span></a>
+        <a href="#experience"     class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;"><span data-de="// 02. Erfahrung">// 02. Experience</span></a>
+        <a href="#skills"         class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;"><span data-de="// 03. Fähigkeiten">// 03. Skills</span></a>
+        <a href="#certifications" class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;"><span data-de="// 04. Zertifikate">// 04. Certifications</span></a>
+        <a href="#languages"      class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;"><span data-de="// 05. Sprachen">// 05. Languages</span></a>
+        <a href="#education"      class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;"><span data-de="// 06. Ausbildung">// 06. Education</span></a>
+        <a href="#reference"      class="mobile-nav-item" style="color: var(--text-primary); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem;"><span data-de="// 07. Referenzen">// 07. References</span></a>
+        <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;"><span data-de="Kontakt aufnehmen">Get in Touch</span></a>
       </div>
     </nav>
+
+    <!-- Lenis smooth scroll -->
+    <SmoothScroll client:only="react" />
+
+    <!-- Three.js WebGL scene — fixed canvas behind all UI -->
+    <MainScene client:only="react" />
 
     <!-- Main Content Slot -->
     <slot />
 
     <style>
-      /* Scoped Navigation Layout styles */
-      .mobile-icons-container {
-        align-items: center;
-      }
-      
+      .mobile-icons-container { align-items: center; }
+
       @media (max-width: 991px) {
-        .nav-links {
-          display: none !important;
-        }
-        .mobile-icons-container {
-          display: flex !important;
-        }
+        .nav-links { display: none !important; }
+        .mobile-icons-container { display: flex !important; }
       }
     </style>
 
-    <!-- Scroll reveal & Active navbar link highlights script -->
     <script>
-      // Scroll Reveal logic using IntersectionObserver
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
+      // ── Static i18n swap engine ──────────────────────────────────────────────
+      // Elements with [data-de] switch textContent on language change.
+      // EN values are captured once from the DOM on first load.
+      (function () {
+        function captureEn() {
+          document.querySelectorAll('[data-de]').forEach(el => {
+            if (!el.dataset.en) el.dataset.en = el.textContent;
+          });
+        }
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
+        function applyLang(lang) {
+          document.documentElement.setAttribute('lang', lang);
+          document.querySelectorAll('[data-de]').forEach(el => {
+            el.textContent = lang === 'de'
+              ? el.dataset.de
+              : (el.dataset.en || el.textContent);
+          });
+        }
 
-      // Bind observer to elements with reveal class
-      document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-      });
+        captureEn();
+        const initLang = localStorage.getItem('lang') || 'en';
+        if (initLang === 'de') applyLang('de');
 
-      // Navigation scroll spy logic
+        document.addEventListener('langchange', e => applyLang(e.detail));
+      })();
+
+      // ── Scroll Reveal ────────────────────────────────────────────────────────
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+        { root: null, rootMargin: '0px', threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // ── Scroll spy ───────────────────────────────────────────────────────────
       window.addEventListener('scroll', () => {
         const sections = ['hero', 'experience', 'skills', 'certifications', 'languages', 'education', 'reference'];
         let current = 'hero';
-        
-        sections.forEach(section => {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            // If the section top is close to the top of the viewport
-            if (rect.top <= 180 && rect.bottom >= 180) {
-              current = section;
-            }
-          }
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) { const r = el.getBoundingClientRect(); if (r.top <= 180 && r.bottom >= 180) current = id; }
         });
-
-        // Desktop nav active state
         document.querySelectorAll('.nav-item').forEach(link => {
-          link.classList.remove('active');
-          const href = link.getAttribute('href');
-          if (href === `#${current}`) {
-            link.classList.add('active');
-          }
+          link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
         });
       });
 
-      // Mobile Menu Toggle logic
+      // ── Mobile Menu ──────────────────────────────────────────────────────────
       const menuToggle = document.getElementById('mobile-menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
-
       if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', () => {
-          const isHidden = mobileMenu.style.display === 'none';
-          mobileMenu.style.display = isHidden ? 'flex' : 'none';
-          menuToggle.textContent = isHidden ? 'close' : 'menu';
+          const hidden = mobileMenu.style.display === 'none';
+          mobileMenu.style.display = hidden ? 'flex' : 'none';
+          menuToggle.textContent = hidden ? 'close' : 'menu';
         });
-
-        // Close mobile menu when links are clicked
         document.querySelectorAll('.mobile-nav-item').forEach(item => {
           item.addEventListener('click', () => {
             mobileMenu.style.display = 'none';
