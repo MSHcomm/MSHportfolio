@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Legal Notice | Impressum — Mohamed Gedan" description="Legal Notice (Impressum) for Mohamed Gedan's portfolio website.">
+  <main class="legal-page container">
+    <section class="legal-section">
+      <h1>
+        <span data-de="Impressum">Legal Notice</span>
+      </h1>
+
+      <h2><span data-de="Angaben gemäß § 5 TMG">Information pursuant to § 5 TMG</span></h2>
+      <p>
+        Mohamed Gedan<br />
+        <span data-de="Softwareentwickler / Embedded Systems Engineer">Software Developer / Embedded Systems Engineer</span><br />
+        Germany
+      </p>
+
+      <h2><span data-de="Kontakt">Contact</span></h2>
+      <p>
+        E-Mail: <a href="mailto:msh.comm@yahoo.com">msh.comm@yahoo.com</a><br />
+        <span data-de="Website:">Website:</span> <a href="https://mshportfolio.pages.dev">mshportfolio.pages.dev</a>
+      </p>
+
+      <h2><span data-de="Haftungsausschluss">Disclaimer</span></h2>
+      <h3><span data-de="Haftung für Inhalte">Liability for Content</span></h3>
+      <p>
+        <span data-de="Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.">
+          The contents of these pages were created with the utmost care. However, no guarantee can be given for the correctness, completeness, and topicality of the content.
+        </span>
+      </p>
+
+      <h3><span data-de="Haftung für Links">Liability for Links</span></h3>
+      <p>
+        <span data-de="Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.">
+          Our website contains links to external third-party websites, over whose content we have no influence. The respective provider or operator of the linked pages is always responsible for their content.
+        </span>
+      </p>
+
+      <h2><span data-de="Urheberrecht">Copyright</span></h2>
+      <p>
+        <span data-de="Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.">
+          The content and works created by the site operator on these pages are subject to German copyright law. Third-party contributions are marked as such. Reproduction, editing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator.
+        </span>
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    min-height: 80vh;
+  }
+
+  .legal-section {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--text-primary);
+  }
+
+  .legal-section h1 {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--card-border, rgba(255,255,255,0.08));
+    padding-bottom: 0.75rem;
+  }
+
+  .legal-section h2 {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--primary);
+    margin: 1.75rem 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .legal-section h3 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 1.25rem 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .legal-section p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .legal-section a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .legal-section a:hover {
+    text-decoration: underline;
+  }
+</style>

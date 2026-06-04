@@ -105,12 +105,69 @@ const {
     <!-- Main Content Slot -->
     <slot />
 
+    <!-- Legal Footer -->
+    <footer id="legal-footer">
+      <div class="legal-footer-inner">
+        <span class="legal-copy">
+          &copy; <span id="footer-year"></span> Mohamed Gedan. <span data-de="Alle Rechte vorbehalten.">All rights reserved.</span>
+        </span>
+        <div class="legal-links">
+          <a href="/impressum" class="legal-link" data-de="Impressum">Legal Notice</a>
+          <span class="legal-sep">·</span>
+          <a href="/datenschutz" class="legal-link" data-de="Datenschutz">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
     <style>
       .mobile-icons-container { align-items: center; }
 
       @media (max-width: 991px) {
         .nav-links { display: none !important; }
         .mobile-icons-container { display: flex !important; }
+      }
+
+      /* ── Legal Footer ───────────────────────────────────────────────────── */
+      #legal-footer {
+        position: relative;
+        z-index: 10;
+        border-top: 1px solid var(--card-border, rgba(255,255,255,0.08));
+        background: var(--card-bg-lowest);
+        padding: 18px 24px;
+      }
+
+      .legal-footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-secondary);
+      }
+
+      .legal-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .legal-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .legal-link:hover {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+
+      .legal-sep {
+        opacity: 0.4;
       }
     </style>
 
@@ -177,6 +234,10 @@ const {
           });
         });
       }
+
+      // ── Footer year ──────────────────────────────────────────────────────────
+      const fy = document.getElementById('footer-year');
+      if (fy) fy.textContent = new Date().getFullYear();
     </script>
   </body>
 </html>

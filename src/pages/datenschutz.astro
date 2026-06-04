@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy | Datenschutz — Mohamed Gedan" description="Privacy Policy (Datenschutzerklärung) for Mohamed Gedan's portfolio website.">
+  <main class="legal-page container">
+    <section class="legal-section">
+      <h1>
+        <span data-de="Datenschutzerklärung">Privacy Policy</span>
+      </h1>
+
+      <h2><span data-de="1. Datenschutz auf einen Blick">1. Privacy at a Glance</span></h2>
+      <h3><span data-de="Allgemeine Hinweise">General Notes</span></h3>
+      <p>
+        <span data-de="Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.">
+          The following notes give a simple overview of what happens to your personal data when you visit this website.
+        </span>
+      </p>
+
+      <h2><span data-de="2. Datenerfassung auf dieser Website">2. Data Collection on This Website</span></h2>
+      <h3><span data-de="Wer ist verantwortlich für die Datenerfassung?">Who is responsible for data collection?</span></h3>
+      <p>
+        <span data-de="Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber: Mohamed Gedan (msh.comm@yahoo.com).">
+          Data processing on this website is carried out by the website operator: Mohamed Gedan (msh.comm@yahoo.com).
+        </span>
+      </p>
+
+      <h3><span data-de="Wie werden Ihre Daten erfasst?">How is your data collected?</span></h3>
+      <p>
+        <span data-de="Diese Website erhebt keine personenbezogenen Daten aktiv. Es werden keine Cookies gesetzt, keine Analyse-Tools eingesetzt und keine Daten an Dritte weitergegeben. Serverseitige Zugriffsprotokolle können durch den Hosting-Anbieter Cloudflare Pages erstellt werden.">
+          This website does not actively collect personal data. No cookies are set, no analytics tools are used, and no data is passed on to third parties. Server-side access logs may be created by the hosting provider Cloudflare Pages.
+        </span>
+      </p>
+
+      <h2><span data-de="3. Hosting">3. Hosting</span></h2>
+      <p>
+        <span data-de="Diese Website wird auf Cloudflare Pages gehostet. Den Datenschutzhinweis von Cloudflare finden Sie unter:">
+          This website is hosted on Cloudflare Pages. You can find Cloudflare's privacy policy at:
+        </span>{' '}
+        <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">cloudflare.com/privacypolicy</a>
+      </p>
+
+      <h2><span data-de="4. Externe Links">4. External Links</span></h2>
+      <p>
+        <span data-de="Diese Website enthält Links zu externen Diensten wie LinkedIn und GitHub. Für deren Datenschutzpraktiken sind die jeweiligen Anbieter verantwortlich.">
+          This website contains links to external services such as LinkedIn and GitHub. The respective providers are responsible for their data protection practices.
+        </span>
+      </p>
+
+      <h2><span data-de="5. Ihre Rechte">5. Your Rights</span></h2>
+      <p>
+        <span data-de="Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Wenden Sie sich dazu an: msh.comm@yahoo.com">
+          You have the right to receive free information about the origin, recipient, and purpose of your stored personal data at any time. Contact: msh.comm@yahoo.com
+        </span>
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    min-height: 80vh;
+  }
+
+  .legal-section {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--text-primary);
+  }
+
+  .legal-section h1 {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--card-border, rgba(255,255,255,0.08));
+    padding-bottom: 0.75rem;
+  }
+
+  .legal-section h2 {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--primary);
+    margin: 1.75rem 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .legal-section h3 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 1.25rem 0 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .legal-section p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .legal-section a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .legal-section a:hover {
+    text-decoration: underline;
+  }
+</style>
