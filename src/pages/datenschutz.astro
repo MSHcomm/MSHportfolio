@@ -2,105 +2,157 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Privacy Policy | Datenschutz — Mohamed Gedan" description="Privacy Policy (Datenschutzerklärung) for Mohamed Gedan's portfolio website.">
+<Layout
+  title="Datenschutzerklärung | Privacy Policy — Mohamed Gedan"
+  description="Datenschutzerklärung gemäß DSGVO / Art. 13 GDPR. Privacy Policy pursuant to GDPR for mohamedgedan.de."
+>
   <main class="legal-page container">
     <section class="legal-section">
-      <h1>
-        <span data-de="Datenschutzerklärung">Privacy Policy</span>
-      </h1>
 
-      <h2><span data-de="1. Datenschutz auf einen Blick">1. Privacy at a Glance</span></h2>
-      <h3><span data-de="Allgemeine Hinweise">General Notes</span></h3>
-      <p>
-        <span data-de="Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.">
-          The following notes give a simple overview of what happens to your personal data when you visit this website.
+      <h1><span data-de="Datenschutzerklärung">Privacy Policy</span></h1>
+      <p class="legal-meta">
+        <span data-de="Gemäß Art. 13 Datenschutz-Grundverordnung (DSGVO) und § 25 Telekommunikation-Telemedien-Datenschutz-Gesetz (TTDSG). Stand: Juni 2026.">
+          Pursuant to Art. 13 General Data Protection Regulation (GDPR) and § 25 Telekommunikation-Telemedien-Datenschutz-Gesetz (TTDSG). Last updated: June 2026.
         </span>
       </p>
 
-      <h2><span data-de="2. Datenerfassung auf dieser Website">2. Data Collection on This Website</span></h2>
-      <h3><span data-de="Wer ist verantwortlich für die Datenerfassung?">Who is responsible for data collection?</span></h3>
+      <!-- ════════════════════════════════════
+           1. CONTROLLER
+           ════════════════════════════════════ -->
+      <h2>
+        <span data-de="1. Verantwortlicher (Art. 4 Nr. 7 DSGVO)">1. Data Controller (Art. 4(7) GDPR)</span>
+      </h2>
       <p>
-        <span data-de="Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber: Mohamed Gedan (msh.comm@yahoo.com).">
-          Data processing on this website is carried out by the website operator: Mohamed Gedan (msh.comm@yahoo.com).
+        Mohamed Gedan, Würzburg, <span data-de="Deutschland">Germany</span><br />
+        E-Mail: <a href="mailto:mohamed.gedan.88@gmail.com">mohamed.gedan.88@gmail.com</a>
+      </p>
+
+      <!-- ════════════════════════════════════
+           2. AT A GLANCE
+           ════════════════════════════════════ -->
+      <h2><span data-de="2. Datenschutz auf einen Blick">2. Privacy at a Glance</span></h2>
+      <p>
+        <span data-de="Diese Website erhebt keine personenbezogenen Daten durch Tracking, Analyse-Tools, Werbung oder Cookies im technischen Sinne. Es werden ausschließlich technisch notwendige Browserspeichereinträge (localStorage) gesetzt, um Ihre gewählten Einstellungen (Farbschema, Sprache) über Seitenaufrufe hinweg zu erhalten. Alle Schriften und Medien werden ausschließlich vom eigenen Server ausgeliefert – es werden keine externen Ressourcen geladen.">
+          This website does not collect personal data through tracking, analytics tools, advertising, or cookies in the technical sense. Only strictly necessary browser storage entries (localStorage) are set to retain your chosen settings (colour scheme, language) across page views. All fonts and media are served exclusively from our own server — no external resources are loaded.
         </span>
       </p>
 
-      <h3><span data-de="Wie werden Ihre Daten erfasst?">How is your data collected?</span></h3>
+      <!-- ════════════════════════════════════
+           3. HOSTING & LOCAL STORAGE
+           ════════════════════════════════════ -->
+      <h2><span data-de="3. Hosting &amp; Datenspeicherung">3. Hosting &amp; Data Storage</span></h2>
       <p>
-        <span data-de="Diese Website erhebt keine personenbezogenen Daten aktiv. Es werden keine Cookies gesetzt, keine Analyse-Tools eingesetzt und keine Daten an Dritte weitergegeben. Serverseitige Zugriffsprotokolle können durch den Hosting-Anbieter Cloudflare Pages erstellt werden.">
-          This website does not actively collect personal data. No cookies are set, no analytics tools are used, and no data is passed on to third parties. Server-side access logs may be created by the hosting provider Cloudflare Pages.
-        </span>
-      </p>
-
-      <h2><span data-de="3. Hosting">3. Hosting</span></h2>
-      <p>
-        <span data-de="Diese Website wird auf Cloudflare Pages gehostet. Den Datenschutzhinweis von Cloudflare finden Sie unter:">
-          This website is hosted on Cloudflare Pages. You can find Cloudflare's privacy policy at:
+        <span data-de="Diese Website wird von Cloudflare, Inc. (USA) gehostet. Beim Aufruf werden serverseitig Standardprotokolldaten (IP-Adresse, Browser, Zeitstempel) erhoben — Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO, Speicherdauer max. 30 Tage. Datenübertragung in die USA auf Basis der EU-Standardvertragsklauseln (Art. 46 DSGVO) und EU–US Data Privacy Framework.">
+          This website is hosted by Cloudflare, Inc. (USA). On each visit, standard server log data (IP address, browser, timestamp) is recorded — legal basis: Art. 6(1)(f) GDPR, retention max. 30 days. Data transfer to the USA on the basis of EU Standard Contractual Clauses (Art. 46 GDPR) and the EU–US Data Privacy Framework.
         </span>{' '}
-        <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">cloudflare.com/privacypolicy</a>
+        <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">
+          <span data-de="Cloudflare Datenschutz ↗">Cloudflare Privacy ↗</span>
+        </a>
       </p>
-
-      <h2><span data-de="4. Externe Links">4. External Links</span></h2>
       <p>
-        <span data-de="Diese Website enthält Links zu externen Diensten wie LinkedIn und GitHub. Für deren Datenschutzpraktiken sind die jeweiligen Anbieter verantwortlich.">
-          This website contains links to external services such as LinkedIn and GitHub. The respective providers are responsible for their data protection practices.
+        <span data-de="Im Browser-localStorage werden ausschließlich technisch notwendige Einstellungen gespeichert (Schlüssel: ">
+          The browser localStorage stores only strictly necessary settings (keys:{' '}
+        </span>
+        <code>theme</code>, <code>lang</code>, <code>gdpr_consent</code>
+        <span data-de="). Keine Übertragung an uns oder Dritte. Rechtsgrundlage: TTDSG § 25 Abs. 2 Nr. 2. Speicherdauer: bis zur manuellen Löschung durch den Nutzer.">
+          ). No transmission to us or third parties. Legal basis: TTDSG § 25(2) No. 2. Retention: until manually deleted by the user.
         </span>
       </p>
 
-      <h2><span data-de="5. Ihre Rechte">5. Your Rights</span></h2>
+      <!-- ════════════════════════════════════
+           4. YOUR RIGHTS
+           ════════════════════════════════════ -->
+      <h2><span data-de="4. Ihre Rechte (Art. 15–22 DSGVO)">4. Your Rights (Art. 15–22 GDPR)</span></h2>
       <p>
-        <span data-de="Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Wenden Sie sich dazu an: msh.comm@yahoo.com">
-          You have the right to receive free information about the origin, recipient, and purpose of your stored personal data at any time. Contact: msh.comm@yahoo.com
+        <span data-de="Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21) sowie Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3). Zur Ausübung Ihrer Rechte:">
+          You have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), objection (Art. 21), and withdrawal of any consent given (Art. 7(3)). To exercise your rights:
+        </span>{' '}
+        <a href="mailto:mohamed.gedan.88@gmail.com">mohamed.gedan.88@gmail.com</a>
+      </p>
+      <p>
+        <span data-de="Beschwerderecht (Art. 77 DSGVO): Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach — ">
+          Right to lodge a complaint (Art. 77 GDPR): Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach —{' '}
+        </span>
+        <a href="https://www.lda.bayern.de" target="_blank" rel="noopener noreferrer">www.lda.bayern.de</a>
+      </p>
+
+      <!-- ════════════════════════════════════
+           5. SSL & UPDATES
+           ════════════════════════════════════ -->
+      <h2><span data-de="5. Sicherheit &amp; Aktualität">5. Security &amp; Updates</span></h2>
+      <p>
+        <span data-de="Diese Website wird per SSL/TLS-Verschlüsselung übertragen (erkennbar am „https://" und Schloss-Symbol). Diese Datenschutzerklärung hat den Stand Juni 2026 und wird bei rechtlichen oder technischen Änderungen aktualisiert.">
+          This website is transmitted via SSL/TLS encryption (recognisable by "https://" and the padlock symbol). This privacy policy is current as of June 2026 and will be updated if legal or technical changes arise.
         </span>
       </p>
+
     </section>
   </main>
 </Layout>
 
 <style>
   .legal-page {
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding-top: 110px;
+    padding-bottom: 100px;
     min-height: 80vh;
   }
 
   .legal-section {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
-    color: var(--text-primary);
+  }
+
+  .legal-meta {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--primary);
+    padding-left: 14px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
   }
 
   .legal-section h1 {
     font-family: var(--font-mono);
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
     color: var(--primary);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid var(--card-border, rgba(255,255,255,0.08));
     padding-bottom: 0.75rem;
   }
 
   .legal-section h2 {
     font-family: var(--font-mono);
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--primary);
-    margin: 1.75rem 0 0.5rem;
+    margin: 2.2rem 0 0.6rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.07em;
   }
 
   .legal-section h3 {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
-    margin: 1.25rem 0 0.4rem;
+    margin: 1.4rem 0 0.4rem;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
   }
 
-  .legal-section p {
-    font-size: 0.9rem;
+  .legal-section p,
+  .legal-section li {
+    font-size: 0.88rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.75;
+    margin-bottom: 0.6rem;
+  }
+
+  .legal-section ul {
+    padding-left: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .legal-section li {
+    margin-bottom: 0.5rem;
   }
 
   .legal-section a {
@@ -110,5 +162,53 @@ import Layout from '../layouts/Layout.astro';
 
   .legal-section a:hover {
     text-decoration: underline;
+  }
+
+  /* Data table rows */
+  .legal-table {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border, rgba(255,255,255,0.08));
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.8rem 0 1.2rem;
+  }
+
+  .legal-table-row {
+    display: flex;
+    gap: 16px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--card-border, rgba(255,255,255,0.06));
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    align-items: baseline;
+  }
+
+  .legal-table-row:last-child {
+    border-bottom: none;
+  }
+
+  .legal-table-row.header {
+    background: var(--card-bg-high);
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary);
+  }
+
+  .legal-table-row .label {
+    flex-shrink: 0;
+    min-width: 130px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .legal-table-row .label.mono {
+    color: var(--primary);
+    letter-spacing: 0.04em;
   }
 </style>

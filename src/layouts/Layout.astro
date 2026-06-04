@@ -4,6 +4,7 @@ import MainScene      from '../components/MainScene';
 import SmoothScroll   from '../components/SmoothScroll';
 import LanguageToggle from '../components/LanguageToggle';
 import ThemeToggle    from '../components/ThemeToggle';
+import CookieBanner   from '../components/CookieBanner';
 
 interface Props {
   title?: string;
@@ -48,8 +49,8 @@ const {
       })();
     </script>
 
-    <!-- Google Material Symbols Outlined -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <!-- Material Symbols Outlined — self-hosted (GDPR: no third-party CDN) -->
+    <link rel="stylesheet" href="/fonts/material-symbols.css" />
   </head>
   <body>
     <!-- Navbar Header -->
@@ -96,6 +97,9 @@ const {
       </div>
     </nav>
 
+    <!-- GDPR Cookie Consent Banner -->
+    <CookieBanner client:load />
+
     <!-- Lenis smooth scroll -->
     <SmoothScroll client:only="react" />
 
@@ -112,9 +116,11 @@ const {
           &copy; <span id="footer-year"></span> Mohamed Gedan. <span data-de="Alle Rechte vorbehalten.">All rights reserved.</span>
         </span>
         <div class="legal-links">
-          <a href="/impressum" class="legal-link" data-de="Impressum">Legal Notice</a>
+          <a href="/impressum"   class="legal-link" data-de="Impressum">Legal Notice</a>
           <span class="legal-sep">·</span>
           <a href="/datenschutz" class="legal-link" data-de="Datenschutz">Privacy Policy</a>
+          <span class="legal-sep">·</span>
+          <a href="/disclaimer"  class="legal-link" data-de="Haftungsausschluss">Disclaimer</a>
         </div>
       </div>
     </footer>
