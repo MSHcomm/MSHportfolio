@@ -109,19 +109,41 @@ const {
     <!-- Main Content Slot -->
     <slot />
 
-    <!-- Legal Footer -->
-    <footer id="legal-footer">
-      <div class="legal-footer-inner">
-        <span class="legal-copy">
-          &copy; <span id="footer-year"></span> Mohamed Gedan. <span data-de="Alle Rechte vorbehalten.">All rights reserved.</span>
-        </span>
-        <div class="legal-links">
-          <a href="/impressum"   class="legal-link" data-de="Impressum">Legal Notice</a>
-          <span class="legal-sep">·</span>
-          <a href="/datenschutz" class="legal-link" data-de="Datenschutz">Privacy Policy</a>
-          <span class="legal-sep">·</span>
-          <a href="/disclaimer"  class="legal-link" data-de="Haftungsausschluss">Disclaimer</a>
+    <!-- Site Footer — single source of truth, rendered on every page -->
+    <footer id="site-footer">
+      <div class="footer-inner">
+
+        <!-- Line 1: name wordmark -->
+        <div class="footer-brand">MOHAMED GEDAN</div>
+
+        <!-- Line 2: copyright · tech stack · social links -->
+        <div class="footer-row">
+          <span class="footer-copy">
+            &copy; <span id="footer-year"></span> Mohamed Gedan.
+            <span data-de="Alle Rechte vorbehalten · Gemäß DSGVO / TTDSG.">All rights reserved · Compliant with GDPR / TTDSG.</span>
+          </span>
+          <span class="footer-sep" aria-hidden="true">·</span>
+          <span class="footer-tech">
+            <span data-de="Erstellt mit">Built with</span>
+            <strong>Astro</strong> + <strong>React</strong> + Scoped <strong>Vanilla CSS</strong>
+          </span>
+          <span class="footer-sep" aria-hidden="true">·</span>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/mohamed-sayed-eng/" target="_blank" rel="noopener noreferrer" class="footer-link">LINKEDIN</a>
+            <span class="footer-dot" aria-hidden="true">·</span>
+            <a href="https://github.com/MSHcomm" target="_blank" rel="noopener noreferrer" class="footer-link">GITHUB</a>
+          </div>
         </div>
+
+        <!-- Line 3: legal links -->
+        <div class="footer-legal">
+          <a href="/impressum"   class="footer-link" data-de="Impressum">Legal Notice</a>
+          <span class="footer-dot" aria-hidden="true">·</span>
+          <a href="/datenschutz" class="footer-link" data-de="Datenschutz">Privacy Policy</a>
+          <span class="footer-dot" aria-hidden="true">·</span>
+          <a href="/disclaimer"  class="footer-link" data-de="Haftungsausschluss">Disclaimer</a>
+        </div>
+
       </div>
     </footer>
 
@@ -133,48 +155,72 @@ const {
         .mobile-icons-container { display: flex !important; }
       }
 
-      /* ── Legal Footer ───────────────────────────────────────────────────── */
-      #legal-footer {
+      /* ── Site Footer ────────────────────────────────────────────────────── */
+      #site-footer {
         position: relative;
         z-index: 10;
         border-top: 1px solid var(--card-border, rgba(255,255,255,0.08));
         background: var(--card-bg-lowest);
-        padding: 18px 24px;
+        padding: 20px 24px 18px;
       }
 
-      .legal-footer-inner {
+      .footer-inner {
         max-width: 1100px;
         margin: 0 auto;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
         font-family: var(--font-mono);
         font-size: 0.72rem;
         color: var(--text-secondary);
+        text-align: center;
       }
 
-      .legal-links {
+      .footer-brand {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .footer-row {
         display: flex;
         align-items: center;
-        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
       }
 
-      .legal-link {
+      .footer-copy { color: var(--text-secondary); }
+
+      .footer-tech strong { color: var(--primary); font-weight: 600; }
+
+      .footer-social {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .footer-legal {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .footer-link {
         color: var(--text-secondary);
         text-decoration: none;
-        transition: color 0.2s;
+        transition: color 0.18s;
       }
 
-      .legal-link:hover {
-        color: var(--primary);
-        text-decoration: underline;
-      }
+      .footer-link:hover { color: var(--primary); }
 
-      .legal-sep {
-        opacity: 0.4;
-      }
+      .footer-sep,
+      .footer-dot { opacity: 0.35; }
     </style>
 
     <script>
