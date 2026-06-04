@@ -113,8 +113,8 @@ const {
     <footer id="site-footer">
       <div class="footer-inner">
 
-        <!-- Line 1: name wordmark -->
-        <div class="footer-brand">MOHAMED GEDAN</div>
+        <!-- Line 1: name wordmark — links to homepage -->
+        <a href="https://mohamedgedan.de/" class="footer-brand">MOHAMED GEDAN</a>
 
         <!-- Line 2: copyright · tech stack · social links -->
         <div class="footer-row">
@@ -125,13 +125,13 @@ const {
           <span class="footer-sep" aria-hidden="true">·</span>
           <span class="footer-tech">
             <span data-de="Erstellt mit">Built with</span>
-            <strong>Astro</strong> + <strong>React</strong> + Scoped <strong>Vanilla CSS</strong>
+            <strong class="tech-astro">Astro</strong> + <strong class="tech-react">React</strong> + Scoped <strong class="tech-css">Vanilla CSS</strong>
           </span>
           <span class="footer-sep" aria-hidden="true">·</span>
           <div class="footer-social">
-            <a href="https://www.linkedin.com/in/mohamed-sayed-eng/" target="_blank" rel="noopener noreferrer" class="footer-link">LINKEDIN</a>
+            <a href="https://www.linkedin.com/in/mohamed-sayed-eng/" target="_blank" rel="noopener noreferrer" class="footer-link social-linkedin">LINKEDIN</a>
             <span class="footer-dot" aria-hidden="true">·</span>
-            <a href="https://github.com/MSHcomm" target="_blank" rel="noopener noreferrer" class="footer-link">GITHUB</a>
+            <a href="https://github.com/MSHcomm" target="_blank" rel="noopener noreferrer" class="footer-link social-github">GITHUB</a>
           </div>
         </div>
 
@@ -177,12 +177,19 @@ const {
         text-align: center;
       }
 
+      /* Name wordmark — blue, hover brightens */
       .footer-brand {
         font-size: 0.82rem;
         font-weight: 700;
-        color: var(--text-primary);
         letter-spacing: 0.12em;
         text-transform: uppercase;
+        text-decoration: none;
+        color: #58A6FF;
+        transition: color 0.18s, text-shadow 0.18s;
+      }
+      .footer-brand:hover {
+        color: #a0cfff;
+        text-shadow: 0 0 12px rgba(88, 166, 255, 0.45);
       }
 
       .footer-row {
@@ -193,15 +200,44 @@ const {
         gap: 6px;
       }
 
-      .footer-copy { color: var(--text-secondary); }
+      /* Copyright — orange */
+      .footer-copy {
+        color: #E8883A;
+      }
 
-      .footer-tech strong { color: var(--primary); font-weight: 600; }
+      /* Tech stack — brand colours per technology */
+      .footer-tech { color: var(--text-secondary); }
+
+      .tech-astro   { color: #FF5D01; font-weight: 600; transition: color 0.18s; } /* Astro orange */
+      .tech-react   { color: #61DAFB; font-weight: 600; transition: color 0.18s; } /* React cyan   */
+      .tech-css     { color: #A78BFA; font-weight: 600; transition: color 0.18s; } /* CSS purple   */
+
+      .tech-astro:hover { color: #ff8a45; }
+      .tech-react:hover { color: #a8eeff; }
+      .tech-css:hover   { color: #c4b5fd; }
 
       .footer-social {
         display: flex;
         align-items: center;
         gap: 6px;
       }
+
+      /* LinkedIn — LinkedIn blue; GitHub — white/gray */
+      .social-linkedin {
+        color: #0A66C2;
+        text-decoration: none;
+        transition: color 0.18s;
+        font-weight: 600;
+      }
+      .social-linkedin:hover { color: #5ba8f5; }
+
+      .social-github {
+        color: #8B949E;
+        text-decoration: none;
+        transition: color 0.18s;
+        font-weight: 600;
+      }
+      .social-github:hover { color: #e6edf3; }
 
       .footer-legal {
         display: flex;
@@ -211,13 +247,13 @@ const {
         gap: 6px;
       }
 
+      /* Legal links — muted, hover primary blue */
       .footer-link {
         color: var(--text-secondary);
         text-decoration: none;
         transition: color 0.18s;
       }
-
-      .footer-link:hover { color: var(--primary); }
+      .footer-link:hover { color: #58A6FF; }
 
       .footer-sep,
       .footer-dot { opacity: 0.35; }
