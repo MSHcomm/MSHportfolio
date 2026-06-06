@@ -1,4 +1,5 @@
-node_modules/
-.astro/
-.wrangler/
-dist/
+node_modules/**
+node_modules/.vite/**
+dist/**
+.astro/**
+.wrangler/**
