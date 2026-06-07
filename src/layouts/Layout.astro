@@ -1,4 +1,6 @@
 ---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css';
 import MainScene      from '../components/MainScene';
 import SmoothScroll   from '../components/SmoothScroll';
@@ -61,7 +63,7 @@ const {
     <nav>
       <div class="container nav-container">
         <a href="#hero" class="logo" style="display: flex; align-items: center; gap: 10px;">
-          <InteractiveLogo client:load width={32} height={32} />
+          <InteractiveLogo client:idle width={32} height={32} />
           MOHAMED GEDAN
         </a>
 
@@ -73,8 +75,8 @@ const {
           <a href="#languages"      class="nav-item"><span data-de="Sprachen">Languages</span></a>
           <a href="#education"      class="nav-item"><span data-de="Ausbildung">Education</span></a>
           <a href="#reference"      class="nav-item"><span data-de="Referenzen">References</span></a>
-          <ThemeToggle client:load />
-          <LanguageToggle client:load />
+          <ThemeToggle client:idle />
+          <LanguageToggle client:idle />
           <a href="#contact" class="btn btn-secondary" style="padding: 5px 14px; font-size: 0.72rem; height: auto; white-space: nowrap;">
             <span data-de="KONTAKT">GET IN TOUCH</span>
           </a>
@@ -83,8 +85,8 @@ const {
         <!-- Mobile Nav Trigger Icons -->
         <div class="mobile-icons-container" style="display: none; gap: 12px; color: var(--primary);">
           <span class="material-symbols-outlined" aria-hidden="true">terminal</span>
-          <ThemeToggle client:load />
-          <LanguageToggle client:load />
+          <ThemeToggle client:idle />
+          <LanguageToggle client:idle />
           <span class="material-symbols-outlined" aria-hidden="true" id="mobile-menu-toggle" style="cursor: pointer;">menu</span>
         </div>
       </div>
@@ -103,7 +105,7 @@ const {
     </nav>
 
     <!-- GDPR Cookie Consent Banner -->
-    <CookieBanner client:load />
+    <CookieBanner client:idle />
 
     <!-- Lenis smooth scroll -->
     <SmoothScroll client:only="react" />
@@ -120,7 +122,7 @@ const {
 
         <!-- Line 1: name wordmark — links to homepage -->
         <a href="https://mohamedgedan.de/" class="footer-brand" style="display: flex; align-items: center; gap: 8px;">
-          <InteractiveLogo client:load width={24} height={24} />
+          <InteractiveLogo client:idle width={24} height={24} />
           MOHAMED GEDAN
         </a>
 

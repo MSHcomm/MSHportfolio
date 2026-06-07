@@ -10,7 +10,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
 <Layout>
   <!-- Interactive Circuit Background behind everything -->
   <div style="position: relative; overflow: hidden; min-height: 100vh;">
-    <InteractiveBackground client:load />
+    <InteractiveBackground client:idle />
 
     <!-- 1. SUMMARY / HERO SECTION -->
     <header id="hero" class="container" style="min-height: 100vh; display: flex; align-items: center; justify-content: space-between; position: relative; padding-top: 120px; padding-bottom: 60px;">
@@ -78,7 +78,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
 
         <!-- Terminal Console Emulator -->
         <div class="reveal col-span-3" style="position: relative; z-index: 10;">
-          <InteractiveTerminal client:load />
+          <InteractiveTerminal client:idle />
         </div>
       </div>
     </header>
@@ -90,7 +90,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="line"></div>
       </div>
       <div style="margin-bottom: 80px;">
-        <InteractiveTimeline client:load />
+        <InteractiveTimeline client:visible />
       </div>
 
       <!-- Nested Selected Systems Architecture Specs Drawer -->
@@ -101,7 +101,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
             <span data-de="// EINGESETZTE_ARTEFAKTE // SYSTEMARCHITEKTUR_SPECS">// DEPLOYED_ARTIFACTS // SYSTEM_ARCHITECTURE_SPECS</span>
           </h3>
         </div>
-        <ProjectShowcase client:load />
+        <ProjectShowcase client:visible />
       </div>
     </section>
 
@@ -112,7 +112,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="line"></div>
       </div>
       <div class="reveal">
-        <BentoStack client:load />
+        <BentoStack client:visible />
       </div>
     </section>
 
