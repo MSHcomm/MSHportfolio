@@ -1,6 +1,8 @@
 function getTheme() {
   if (typeof window === 'undefined') return 'dark';
-  return localStorage.getItem('theme') || 'dark';
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) return savedTheme;
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 }
 
 function setTheme(theme) {

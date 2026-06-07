@@ -4,7 +4,12 @@
 
 export function getLanguage() {
   if (typeof localStorage === 'undefined') return 'en';
-  return localStorage.getItem('lang') || 'en';
+  const savedLang = localStorage.getItem('lang');
+  if (savedLang) return savedLang;
+  if (typeof navigator !== 'undefined' && navigator.language.startsWith('de')) {
+    return 'de';
+  }
+  return 'en';
 }
 
 export function setLanguage(lang) {

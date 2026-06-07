@@ -44,8 +44,11 @@ const {
     <!-- Theme FOUC prevention: apply saved theme before first paint -->
     <script is:inline>
       (function() {
-        if (localStorage.getItem('theme') === 'light')
+        const savedTheme = localStorage.getItem('theme');
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
           document.documentElement.setAttribute('data-theme', 'light');
+        }
       })();
     </script>
 
@@ -288,7 +291,10 @@ const {
         }
 
         captureEn();
-        const initLang = localStorage.getItem('lang') || 'en';
+        let initLang = localStorage.getItem('lang');
+        if (!initLang) {
+          initLang = navigator.language.startsWith('de') ? 'de' : 'en';
+        }
         if (initLang === 'de') applyLang('de');
 
         document.addEventListener('langchange', e => applyLang(e.detail));

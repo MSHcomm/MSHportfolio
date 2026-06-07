@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+# Mohamed Gedan - Senior Embedded Systems & Firmware Architect
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Welcome to the source code of my personal portfolio and resume website! 
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is a modern, responsive, and highly optimized web application built to showcase my experience in embedded systems, firmware architecture, and low-level development. 
 
-## 🚀 Project Structure
+## Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+This project was built from the ground up prioritizing extreme performance, low overhead, and a "Dark Infrastructure" aesthetic:
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Framework**: [Astro](https://astro.build/) - For shipping zero-JS by default and static HTML generation.
+- **UI Components**: [React](https://react.dev/) - Used strictly for interactive "Islands" (like the 3D scene, terminal emulator, and bento grids).
+- **Styling**: Scoped Vanilla CSS - No heavy CSS frameworks like Tailwind or Bootstrap. Uses native CSS variables and modern Grid/Flexbox layouts.
+- **3D Graphics**: Three.js & React Three Fiber - For the interactive background particle sphere and terminal effects.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Blazing Fast**: Perfect Lighthouse scores. Astro islands ensure JavaScript is only loaded exactly where needed.
+- **Bento Grid Layout**: A responsive, fluid grid system that neatly categorizes skills, certifications, and education.
+- **Dark Infrastructure Theme**: A custom-designed dark mode with subtle glowing accents and monospace typography that reflects an embedded engineering environment.
+- **Full i18n Support**: Native static swapping between English and German without heavy translation libraries.
+- **Accessibility (A11y)**: Fully compliant with screen readers, aria-labels, and semantic HTML tags.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Development
 
-## 🧞 Commands
+To run this project locally, you will need Node.js and NPM installed.
 
-All commands are run from the root of the project, from a terminal:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at `http://localhost:4321`.
 
-## 👀 Want to learn more?
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+   This will generate a highly optimized static build in the `dist/` directory.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## License & Copyright
+
+All rights reserved. The content and design of this portfolio are the intellectual property of Mohamed Gedan. 
