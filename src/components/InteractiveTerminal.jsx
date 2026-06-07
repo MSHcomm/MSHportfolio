@@ -146,39 +146,11 @@ export default function InteractiveTerminal() {
 
   return (
     <div 
-      className="terminal-container-box"
+      className="terminal-container-box interactive-terminal"
       onClick={handleTerminalClick}
-      style={{
-        background: '#060e20',
-        border: '1px solid #2d3449',
-        borderRadius: '8px',
-        padding: '16px',
-        fontFamily: 'var(--font-mono)',
-        fontSize: '11px',
-        lineHeight: '1.5',
-        color: '#adc6ff',
-        height: '320px',
-        overflowY: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
-        cursor: 'text',
-        position: 'relative'
-      }}
     >
       {/* Simulated Mac/Linux Window Header Bar */}
-      <div 
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          borderBottom: '1px solid #1c263c',
-          paddingBottom: '8px',
-          marginBottom: '12px',
-          pointerEvents: 'none',
-          userSelect: 'none',
-          opacity: 0.6
-        }}
-      >
+      <div className="interactive-terminal-header">
         <div style={{ display: 'flex', gap: '6px' }}>
           <span style={{ width: '8px', height: '8px', background: '#ef4444', borderRadius: '50%' }}></span>
           <span style={{ width: '8px', height: '8px', background: '#eab308', borderRadius: '50%' }}></span>
@@ -189,7 +161,7 @@ export default function InteractiveTerminal() {
       </div>
 
       {/* Log Content */}
-      <div style={{ flex: 1, overflowY: 'auto', marginBottom: '8px' }}>
+      <div className="interactive-terminal-logs" aria-live="polite" style={{ flex: 1, overflowY: 'auto', marginBottom: '8px' }}>
         {history.map((line, idx) => (
           <div 
             key={idx} 
@@ -224,20 +196,11 @@ export default function InteractiveTerminal() {
           <input
             ref={inputRef}
             type="text"
+            className="interactive-terminal-input"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={handleCommand}
             autoFocus
-            style={{
-              flex: 1,
-              background: 'transparent',
-              border: 'none',
-              outline: 'none',
-              color: '#dae2fd',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              caretColor: '#c0c1ff'
-            }}
           />
         </div>
       )}

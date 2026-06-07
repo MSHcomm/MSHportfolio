@@ -25,7 +25,6 @@ const {
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
@@ -43,6 +42,21 @@ const {
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+
+    <!-- JSON-LD SEO -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "name": "Mohamed Gedan",
+        "jobTitle": "Senior Embedded Software Engineer",
+        "url": "https://mohamedgedan.de/",
+        "sameAs": [
+          "https://www.linkedin.com/in/mohamed-sayed-eng/",
+          "https://github.com/MSHcomm"
+        ]
+      }
+    </script>
 
     <!-- Theme FOUC prevention: apply saved theme before first paint -->
     <script is:inline>
@@ -87,7 +101,9 @@ const {
           <span class="material-symbols-outlined" aria-hidden="true">terminal</span>
           <ThemeToggle client:idle />
           <LanguageToggle client:idle />
-          <span class="material-symbols-outlined" aria-hidden="true" id="mobile-menu-toggle" style="cursor: pointer;">menu</span>
+          <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+          </button>
         </div>
       </div>
 
@@ -111,7 +127,7 @@ const {
     <SmoothScroll client:only="react" />
 
     <!-- Three.js WebGL scene — fixed canvas behind all UI -->
-    <MainScene client:only="react" />
+    <MainScene client:idle />
 
     <!-- Main Content Slot -->
     <slot />
@@ -282,10 +298,14 @@ const {
       // Elements with [data-de] switch textContent on language change.
       // EN values are captured once from the DOM on first load.
       (function () {
-        function captureEn() {
-          document.querySelectorAll('[data-de]').forEach(el => {
+        function captureEn(node) {
+          const els = node.querySelectorAll ? node.querySelectorAll('[data-de]') : [];
+          els.forEach(el => {
             if (!el.dataset.en) el.dataset.en = el.textContent;
           });
+          if (node.hasAttribute && node.hasAttribute('data-de')) {
+            if (!node.dataset.en) node.dataset.en = node.textContent;
+          }
         }
 
         function applyLang(lang) {
@@ -297,7 +317,7 @@ const {
           });
         }
 
-        captureEn();
+        captureEn(document);
         let initLang = localStorage.getItem('lang');
         if (!initLang) {
           initLang = navigator.language.startsWith('de') ? 'de' : 'en';
@@ -305,6 +325,24 @@ const {
         if (initLang === 'de') applyLang('de');
 
         document.addEventListener('langchange', e => applyLang(e.detail));
+
+        // MutationObserver to handle dynamically loaded components (e.g. React)
+        const observer = new MutationObserver((mutations) => {
+          let shouldApply = false;
+          mutations.forEach(m => {
+            m.addedNodes.forEach(node => {
+              if (node.nodeType === 1) { // ELEMENT_NODE
+                captureEn(node);
+                shouldApply = true;
+              }
+            });
+          });
+          if (shouldApply) {
+            const currentLang = document.documentElement.getAttribute('lang') || 'en';
+            applyLang(currentLang);
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
       })();
 
       // ── Scroll Reveal ────────────────────────────────────────────────────────
@@ -334,12 +372,16 @@ const {
         menuToggle.addEventListener('click', () => {
           const hidden = mobileMenu.style.display === 'none';
           mobileMenu.style.display = hidden ? 'flex' : 'none';
-          menuToggle.textContent = hidden ? 'close' : 'menu';
+          const iconSpan = menuToggle.querySelector('span');
+          if (iconSpan) iconSpan.textContent = hidden ? 'close' : 'menu';
+          menuToggle.setAttribute('aria-expanded', hidden ? 'true' : 'false');
         });
         document.querySelectorAll('.mobile-nav-item').forEach(item => {
           item.addEventListener('click', () => {
             mobileMenu.style.display = 'none';
-            menuToggle.textContent = 'menu';
+            const iconSpan = menuToggle.querySelector('span');
+            if (iconSpan) iconSpan.textContent = 'menu';
+            menuToggle.setAttribute('aria-expanded', 'false');
           });
         });
       }

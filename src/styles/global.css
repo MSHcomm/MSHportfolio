@@ -482,3 +482,56 @@ nav .nav-links a.active {
     justify-content: center;
   }
 }
+
+/* Interactive Terminal extracted styles */
+.interactive-terminal {
+  background: #060e20;
+  border: 1px solid #2d3449;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  color: #adc6ff;
+  height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  cursor: text;
+  position: relative;
+}
+
+.interactive-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #1c263c;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.6;
+}
+
+.interactive-terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #dae2fd;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  caret-color: #c0c1ff;
+}
+
+/* Mobile Menu Button Reset */
+.mobile-menu-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

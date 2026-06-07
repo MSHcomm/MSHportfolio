@@ -1,18 +1,12 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    path {
-      stroke: #0969DA; /* Light theme primary */
-    }
-    @media (prefers-color-scheme: dark) {
-      path {
-        stroke: #58A6FF; /* Dark theme primary */
-      }
-    }
-  </style>
-  <g stroke-width="8" fill="none" stroke-linejoin="round" stroke-linecap="round">
-    <!-- Hexagon G -->
+  <defs>
+    <linearGradient id="logo-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58A6FF" />
+      <stop offset="100%" stop-color="#00D4FF" />
+    </linearGradient>
+  </defs>
+  <g stroke="url(#logo-glow)" stroke-width="7" fill="none" stroke-linejoin="round" stroke-linecap="round">
     <path d="M 85 28 L 50 8 L 15 28 L 15 72 L 50 92 L 85 72 L 85 50 L 72 50" />
-    <!-- Inner M -->
     <path d="M 28 65 L 28 35 L 50 55 L 72 35 L 72 65" />
   </g>
 </svg>
