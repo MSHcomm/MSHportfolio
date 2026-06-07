@@ -42,6 +42,8 @@ export default function LanguageToggle() {
     >
       <button
         onClick={() => changeLang('en')}
+        aria-label="Switch to English"
+        aria-pressed={lang === 'en'}
         style={{
           ...base,
           background: lang === 'en' ? 'var(--primary)' : 'transparent',
@@ -52,6 +54,8 @@ export default function LanguageToggle() {
       </button>
       <button
         onClick={() => changeLang('de')}
+        aria-label="Auf Deutsch wechseln"
+        aria-pressed={lang === 'de'}
         style={{
           ...base,
           background: lang === 'de' ? 'var(--primary)' : 'transparent',

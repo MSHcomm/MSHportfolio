@@ -78,7 +78,7 @@ export default function BentoStack() {
                 color: 'var(--primary)',
               }}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+              <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '18px' }}>
                 {column.icon}
               </span>
             </div>

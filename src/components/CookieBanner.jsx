@@ -208,7 +208,7 @@ export default function CookieBanner() {
         {/* Left: icon + text */}
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', flex: '1 1 300px', minWidth: 0 }}>
           <span
-            className="material-symbols-outlined"
+            className="material-symbols-outlined" aria-hidden="true"
             style={{ color: 'var(--primary)', fontSize: '22px', flexShrink: 0, marginTop: '1px' }}
           >
             shield

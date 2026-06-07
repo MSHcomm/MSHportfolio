@@ -165,7 +165,7 @@ function ImagePlaceholder({ id }) {
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      <span className="material-symbols-outlined" style={{ fontSize: '48px', color: 'rgba(192,193,255,0.15)' }}>
+      <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '48px', color: 'rgba(192,193,255,0.15)' }}>
         memory
       </span>
     </div>
@@ -255,7 +255,7 @@ export default function ProjectShowcase() {
                 className="btn btn-secondary text-mono"
                 style={{ width: '100%', fontSize: '11px', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
               >
-                <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>schema</span>
+                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '16px' }}>schema</span>
                 {labels.viewSpecs}
               </button>
             </div>
@@ -288,7 +288,7 @@ export default function ProjectShowcase() {
               onClick={() => setActiveProject(null)}
               style={{ position: 'absolute', top: '20px', right: '20px', background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', outline: 'none' }}
             >
-              <span className="material-symbols-outlined">close</span>
+              <span className="material-symbols-outlined" aria-hidden="true">close</span>
             </button>
 
             <span className="text-mono" style={{ color: 'var(--primary)', fontSize: '11px', borderBottom: '1px solid var(--card-border)', display: 'block', paddingBottom: '8px', marginBottom: '16px' }}>

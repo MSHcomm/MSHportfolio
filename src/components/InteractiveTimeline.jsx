@@ -238,7 +238,7 @@ export default function InteractiveTimeline() {
                 className="text-mono"
                 style={{ background: 'transparent', border: 'none', color: 'var(--primary)', fontSize: '10px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '16px', padding: 0, outline: 'none', opacity: 0.7 }}
               >
-                <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>
+                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '14px' }}>
                   {isExpanded ? 'expand_less' : 'expand_more'}
                 </span>
                 {isExpanded
