@@ -190,7 +190,7 @@ export default function ProjectShowcase() {
   return (
     <div style={{ position: 'relative' }}>
       {/* Grid of project cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '24px' }}>
         {projects.map((project, idx) => (
           <div
             key={idx}
@@ -308,13 +308,13 @@ export default function ProjectShowcase() {
                 <div
                   key={idx}
                   style={{
-                    display: 'grid', gridTemplateColumns: '140px 1fr', padding: '9px 14px',
+                    display: 'flex', flexWrap: 'wrap', padding: '12px 14px',
                     borderBottom: idx === activeProject.specs.length - 1 ? 'none' : '1px solid var(--card-border)',
-                    gap: '12px', alignItems: 'start',
+                    gap: '8px', alignItems: 'start',
                   }}
                 >
-                  <span style={{ color: 'var(--primary)', fontWeight: '700', letterSpacing: '0.05em' }}>{row.label}</span>
-                  <span style={{ color: 'var(--text-secondary)', lineHeight: '1.5' }}>{row.value}</span>
+                  <span style={{ color: 'var(--primary)', fontWeight: '700', letterSpacing: '0.05em', flexBasis: '140px', flexShrink: 0 }}>{row.label}</span>
+                  <span style={{ color: 'var(--text-secondary)', lineHeight: '1.5', flex: '1 1 200px' }}>{row.value}</span>
                 </div>
               ))}
             </div>

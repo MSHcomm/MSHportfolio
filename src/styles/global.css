@@ -396,6 +396,34 @@ nav .nav-links a.active {
   transform: translateY(0);
 }
 
+/* Custom Grid Utilities */
+.grid-cols-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter-desktop);
+  width: 100%;
+}
+
+.col-span-12 {
+  grid-column: span 12;
+}
+
+.col-span-9 {
+  grid-column: span 9;
+}
+
+.col-span-7 {
+  grid-column: span 7;
+}
+
+.col-span-5 {
+  grid-column: span 5;
+}
+
+.col-span-3 {
+  grid-column: span 3;
+}
+
 /* Responsive adjustments */
 @media (max-width: 991px) {
   .bento-grid {
@@ -409,6 +437,16 @@ nav .nav-links a.active {
   
   nav .nav-links {
     display: none; /* simple burger menu / icon trigger on mobile */
+  }
+
+  /* Flatten our custom 12-col grid */
+  .col-span-9, .col-span-3, .col-span-7, .col-span-5 {
+    grid-column: span 12;
+  }
+  
+  /* Give spacing between stacked elements */
+  .grid-cols-12 {
+    gap: var(--gutter-mobile);
   }
 }
 
@@ -433,5 +471,16 @@ nav .nav-links a.active {
   .container {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .bento-cell {
+    padding: 20px !important; /* Force smaller padding on small screens */
+  }
+  
+  /* Make buttons on mobile span full width more easily */
+  .mobile-full-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }

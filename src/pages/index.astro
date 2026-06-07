@@ -14,10 +14,10 @@ import ProjectShowcase from '../components/ProjectShowcase';
 
     <!-- 1. SUMMARY / HERO SECTION -->
     <header id="hero" class="container" style="min-height: 100vh; display: flex; align-items: center; justify-content: space-between; position: relative; padding-top: 120px; padding-bottom: 60px;">
-      <div style="width: 100%; display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter-desktop); align-items: center;">
+      <div class="grid-cols-12" style="align-items: center;">
         
         <!-- Summary & Actions -->
-        <div class="reveal" style="grid-column: span 9; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+        <div class="reveal col-span-9" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
           <div 
             style={{
               display: 'inline-block',
@@ -77,7 +77,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         </div>
 
         <!-- Terminal Console Emulator -->
-        <div class="reveal" style="grid-column: span 3; position: relative; z-index: 10;">
+        <div class="reveal col-span-3" style="position: relative; z-index: 10;">
           <InteractiveTerminal client:load />
         </div>
       </div>
@@ -123,7 +123,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="line"></div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;" class="reveal">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px;" class="reveal">
         <!-- Cert 1 -->
         <div class="bento-cell" style="padding: 24px; background: var(--card-bg);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
@@ -181,7 +181,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="line"></div>
       </div>
 
-      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px;">
         <!-- Arabic -->
         <div class="bento-cell" style="padding: 28px; background: var(--card-bg); display: flex; flex-direction: column; gap: 20px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start;">
@@ -248,7 +248,7 @@ import ProjectShowcase from '../components/ProjectShowcase';
         <div class="line"></div>
       </div>
 
-      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;">
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px;">
         <!-- M.Sc. -->
         <div class="bento-cell" style="padding: 28px; background: var(--card-bg); display: flex; flex-direction: column; gap: 16px; position: relative;">
           <div style="position: absolute; top: 20px; right: 20px; font-family: var(--font-mono); font-size: 10px; background: rgba(88, 166, 255, 0.1); color: var(--primary); border: 1px solid rgba(88, 166, 255, 0.2); padding: 2px 8px; border-radius: 4px;">
@@ -338,10 +338,10 @@ import ProjectShowcase from '../components/ProjectShowcase';
 
     <!-- CONTACT PANEL -->
     <section id="contact" class="container" style="padding-top: 100px; padding-bottom: 120px; position: relative; z-index: 10;">
-      <div class="reveal bento-cell" style="padding: 48px; background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-high) 100%); display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter-desktop); align-items: center;">
+      <div class="reveal bento-cell grid-cols-12" style="padding: 48px; background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-high) 100%); align-items: center;">
         
         <!-- Info text (Spans 7 columns on desktop) -->
-        <div style="grid-column: span 7;">
+        <div class="col-span-7">
           <h2 style="font-family: var(--font-mono); font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: var(--primary); margin-bottom: 16px;">
             <span data-de="VERBINDUNG_HERSTELLEN //">ESTABLISH_CONNECTION //</span>
           </h2>
@@ -366,8 +366,8 @@ import ProjectShowcase from '../components/ProjectShowcase';
         </div>
 
         <!-- Call to Action forms/buttons (Spans 5 columns on desktop) -->
-        <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px; width: 100%;">
-          <a href="mailto:mohamed.gedan.88@gmail.com" class="btn btn-primary text-mono" style="padding: 16px; font-size: 13px; width: 100%; display: flex; justify-content: center;">
+        <div class="col-span-5" style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
+          <a href="mailto:mohamed.gedan.88@gmail.com" class="btn btn-primary text-mono mobile-full-width" style="padding: 16px; font-size: 13px; justify-content: center;">
             <span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
             <span data-de="KOMMUNIKATIONSKANAL_ÖFFNEN">OPEN_COMMUNICATION_CHANNEL</span>
           </a>
@@ -392,30 +392,4 @@ import ProjectShowcase from '../components/ProjectShowcase';
     </section>
 
   </div>
-
-  <style>
-    /* Responsive layout column span definitions */
-    @media (max-width: 991px) {
-      #hero div div:first-child {
-        grid-column: span 12 !important;
-        margin-bottom: 40px;
-      }
-      #hero div div:last-child {
-        grid-column: span 12 !important;
-      }
-      #contact div:first-child {
-        grid-column: span 12 !important;
-        margin-bottom: 24px;
-      }
-      #contact div:last-child {
-        grid-column: span 12 !important;
-      }
-      header div div {
-        grid-column: span 12 !important;
-      }
-      section div div {
-        grid-column: span 12 !important;
-      }
-    }
-  </style>
 </Layout>
