@@ -5,6 +5,7 @@ import SmoothScroll   from '../components/SmoothScroll';
 import LanguageToggle from '../components/LanguageToggle';
 import ThemeToggle    from '../components/ThemeToggle';
 import CookieBanner   from '../components/CookieBanner';
+import InteractiveLogo from '../components/InteractiveLogo';
 
 interface Props {
   title?: string;
@@ -59,7 +60,8 @@ const {
     <!-- Navbar Header -->
     <nav>
       <div class="container nav-container">
-        <a href="#hero" class="logo">
+        <a href="#hero" class="logo" style="display: flex; align-items: center; gap: 10px;">
+          <InteractiveLogo client:load width={32} height={32} />
           MOHAMED GEDAN
         </a>
 
@@ -117,7 +119,10 @@ const {
       <div class="footer-inner">
 
         <!-- Line 1: name wordmark — links to homepage -->
-        <a href="https://mohamedgedan.de/" class="footer-brand">MOHAMED GEDAN</a>
+        <a href="https://mohamedgedan.de/" class="footer-brand" style="display: flex; align-items: center; gap: 8px;">
+          <InteractiveLogo client:load width={24} height={24} />
+          MOHAMED GEDAN
+        </a>
 
         <!-- Line 2: copyright · tech stack · social links -->
         <div class="footer-row">
